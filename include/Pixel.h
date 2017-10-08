@@ -3,6 +3,7 @@
 
 #include <pixel.h>
 #include <ColorDbl.h>
+#include <Ray.h>
 
 
 class Pixel
@@ -16,6 +17,8 @@ class Pixel
 
     private:
         ColorDbl color;
+        //reference to a ray (the ray that goes through it)
+        //Ray& refRay;
 };
 
 #endif // PIXEL_H

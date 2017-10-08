@@ -3,6 +3,7 @@
 
 #include "Vertex.h"
 #include "Pixel.h"
+#include "Scene.h"
 #include <Direction.h>
 #include "../glm/glm/glm.hpp"
 
@@ -19,8 +20,10 @@ class Camera
     protected:
 
     private:
-        Vertex eye;
+        glm::vec3 eye;
         Pixel imagePlane[1000][1000];
+
+        const int max_val = 1000;
 
 };
 

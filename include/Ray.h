@@ -5,23 +5,27 @@
 
 #include <Vertex.h>
 #include <ColorDbl.h>
+#include <Triangle.h>
 
 class Ray
 {
     public:
         Ray();
-        Ray(Vertex s, Vertex e);
+        Ray(glm::vec3 s, glm::vec3 e);
         virtual ~Ray();
 
         glm::vec3 getStart();
+        glm::vec3 getDirection();
+        void setColor(ColorDbl c);
+        ColorDbl getColor();
 
     protected:
 
     private:
-        Vertex rayStart, rayEnd;
+        glm::vec3 rayStart, rayPoint;
         ColorDbl color;
-
-        //referera till triangle
+        //reference to triange (the triangle that the ray hits, if any)
+        //Triangle& refTri;
 };
 
 #endif // RAY_H

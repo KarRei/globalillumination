@@ -17,9 +17,11 @@ class Triangle
         Triangle(Vertex a, Vertex b, Vertex c, Surface s);
         virtual ~Triangle();
 
-        glm::vec3 (int p);
+        glm::vec3 getPoint(int p);
 
         Direction getNormal();
+
+        ColorDbl getColor();
 
     protected:
 

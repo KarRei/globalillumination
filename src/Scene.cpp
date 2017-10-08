@@ -83,41 +83,65 @@ void Scene::createRoom(){
 
 }
 
-Triangle Scene::rayIntersection(Ray r, glm::vec3 d)
+void Scene::rayIntersection(Ray& r)
 {
     //snygga till nödlösningen!!
 
     //Loop through all triangles in scene
     //Loop the current triangle
-    float v, u;
-    glm::vec3 e1, e2, T, P, Q;
+    Triangle* temp;
+    float distance = 1000.0f;
+
     for(vector<Triangle>::iterator it = triangles.begin(); it != triangles.end(); it++)
     {
-        e1 = it.getPoint(2) - it.getPoint(1);
-        e2 = it.getPoint(3) - it.getPoint(1);
-
-        T = r.getStart() - it.getPoint(1);
-        P = glm::normalize(glm::cross(d, e2));
-        Q = glm::normalize(glm::cross(T, e1));
-
-        Direction norm(glm::normalize(glm::cross(edge1, edge2)));
-
+        //If true, intersection!
+        if (tryIntersection(r.getDirection(), r.getStart(), it, distance))
+            temp->it;
     }
 
-
+    r.setColor(it.getColor());
 
 }
 
+bool Scene::tryIntersection(glm::vec3 D, glm::vec3 start, Triangle* t, float& d)
+{
+    //Möller Trumbore Algorithm
+    float a, f, v, u;
+    glm::vec3 e1, e2, T, P, Q;
+    e1 = it.getPoint(2) - it.getPoint(1);
+    e2 = it.getPoint(3) - it.getPoint(1);
 
+    T = start - it.getPoint(1);
+    P = glm::normalize(glm::cross(D, e2));
+    Q = glm::normalize(glm::cross(T, e1));
 
+    a = glm::dot(P, e1);
 
+    if (a == 0.0) {
+        return false;
+    }
+    f = 1/a;
+    u = f * (glm::dot(P, T));
+    v = f * (glm::dot(Q, D));
 
+    //u + v < 1 && u >0 && v >0
+    if( u < 0.0 || u > 1.0)
+        return false;
 
+    if( v < 0.0 || u + v > 1.0)
+        return false;
 
+    float t = f * glm::dot(Q, e2);
 
+    if (t > 1 && t < d) {
+        d = t;
+        return true;
+    }
 
+    return false;
 
-
+    //Direction norm(glm::normalize(glm::cross(edge1, edge2)));
+}
 
 
 

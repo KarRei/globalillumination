@@ -1,15 +1,14 @@
 #include "Pixel.h"
 
 Pixel::Pixel()
+: color(glm::vec3(0.0f, 0.0f, 0.0f))
 {
-    //color should be set by the reference isch
-    color = glm::vec3(0.0f);
 }
 
-Pixel::Pixel(ColorDbl a)
+Pixel::Pixel(ColorDbl c)
 {
     //color should be set by the reference isch
-    color = a;
+    color = c;
 }
 
 Pixel::~Pixel()

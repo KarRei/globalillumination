@@ -1,7 +1,10 @@
 #include "Triangle.h"
 
-Triangle::Triangle() {}
-Triangle::Triangle(Vertex a, Vertex b, Vertex c, Surface s)
+Triangle::Triangle()
+: pointPos1(), pointPos2(), pointPos3(), color(), normal(glm::vec3(0.0f))
+{}
+
+Triangle::Triangle(Vertex a, Vertex b, Vertex c, Surface s) // should it be a reference to the surface?
 {
     pointPos1 = a;
     pointPos2 = b;
@@ -38,5 +41,10 @@ glm::vec3 Triangle::getPoint(int p)
     return pointPos3.getVec3();
 }
 
+
+ColorDbl Triangle::getColor()
+{
+    return color;
+}
 
 
