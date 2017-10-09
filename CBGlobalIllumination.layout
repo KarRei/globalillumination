@@ -2,84 +2,9 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Release" />
-	<File name="include\Direction.h" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="75" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="include\Pixel.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="5" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="331" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\Ray.cpp" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="5" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="20" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\Vertex.cpp" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="6" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="100" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="include\Surface.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="94" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="include\Triangle.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="452" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="include\Camera.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="79" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="include\Ray.h" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="557" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="6" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="151" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\Scene.cpp" open="1" top="1" tabpos="7" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="4268" topLine="53" />
-		</Cursor>
-	</File>
-	<File name="include\Scene.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="6" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="364" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\Pixel.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="5" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="74" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="include\Vertex.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="7" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="206" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\Camera.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="5" zoom_2="0">
+	<File name="src\Camera.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="666" topLine="6" />
-		</Cursor>
-	</File>
-	<File name="src\Triangle.cpp" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="930" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\Direction.cpp" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="7" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="112" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="src\Surface.cpp" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -87,14 +12,89 @@
 			<Cursor1 position="96" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\ColorDbl.cpp" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="5" zoom_2="0">
+	<File name="src\Direction.cpp" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="7" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="112" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\ColorDbl.h" open="0" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="156" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\Ray.h" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="557" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\Direction.h" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="75" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\Scene.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="364" topLine="2" />
+		</Cursor>
+	</File>
+	<File name="src\Pixel.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="5" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="74" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\Triangle.h" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="452" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\Scene.cpp" open="1" top="1" tabpos="7" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3554" topLine="91" />
+		</Cursor>
+	</File>
+	<File name="src\Triangle.cpp" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="930" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\Camera.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="79" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\Vertex.cpp" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="6" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="100" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\Pixel.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="5" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="331" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\Vertex.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="7" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="206" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\ColorDbl.cpp" open="0" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="140" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="include\ColorDbl.h" open="1" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
+	<File name="include\Surface.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="156" topLine="0" />
+			<Cursor1 position="94" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="6" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="151" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\Ray.cpp" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="5" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="20" topLine="0" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

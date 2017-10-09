@@ -95,23 +95,26 @@ void Scene::rayIntersection(Ray& r)
     for(vector<Triangle>::iterator it = triangles.begin(); it != triangles.end(); it++)
     {
         //If true, intersection!
-        if (tryIntersection(r.getDirection(), r.getStart(), it, distance))
-            temp->it;
+
+        //Passing it just passes an itterator object, it* passes the underlying object,
+        //&(*it) passes the address to that underlying object
+        if (tryIntersection(r.getDirection(), r.getStart(), &(*it), distance))
+            temp = &(*it);
     }
 
-    r.setColor(it.getColor());
+    r.setColor(temp->getColor());
 
 }
 
-bool Scene::tryIntersection(glm::vec3 D, glm::vec3 start, Triangle* t, float& d)
+bool Scene::tryIntersection(glm::vec3 D, glm::vec3 start, Triangle* tri, float& d)
 {
     //Möller Trumbore Algorithm
     float a, f, v, u;
     glm::vec3 e1, e2, T, P, Q;
-    e1 = it.getPoint(2) - it.getPoint(1);
-    e2 = it.getPoint(3) - it.getPoint(1);
+    e1 = tri->getPoint(2) - tri->getPoint(1);
+    e2 = tri->getPoint(3) - tri->getPoint(1);
 
-    T = start - it.getPoint(1);
+    T = start - tri->getPoint(1);
     P = glm::normalize(glm::cross(D, e2));
     Q = glm::normalize(glm::cross(T, e1));
 

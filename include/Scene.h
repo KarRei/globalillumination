@@ -15,13 +15,13 @@ class Scene
         virtual ~Scene();
         void createRoom();
 
-        static void rayIntersection(Ray& r);
+        void rayIntersection(Ray& r);
         bool tryIntersection(glm::vec3 D, glm::vec3 start, Triangle* t, float& d);
 
     protected:
 
     private:
-        static vector<Triangle> triangles;
+        vector<Triangle> triangles;
 };
 
 #endif // SCENE_H

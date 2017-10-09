@@ -927,3 +927,470 @@
 1507476117 source:h:\tncg15\globalillumination\src\ray.cpp
 	"Ray.h"
 
+1507564009 source:c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\src\camera.cpp
+	"Camera.h"
+
+1507564017 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\include\camera.h
+	"Vertex.h"
+	"Pixel.h"
+	"Scene.h"
+	<Direction.h>
+	"../glm/glm/glm.hpp"
+
+1507113511 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\include\vertex.h
+	"../glm/glm/glm.hpp"
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\glm.hpp
+	"detail/_fixes.hpp"
+	<cmath>
+	<climits>
+	<cfloat>
+	<limits>
+	<cassert>
+	"fwd.hpp"
+	"vec2.hpp"
+	"vec3.hpp"
+	"vec4.hpp"
+	"mat2x2.hpp"
+	"mat2x3.hpp"
+	"mat2x4.hpp"
+	"mat3x2.hpp"
+	"mat3x3.hpp"
+	"mat3x4.hpp"
+	"mat4x2.hpp"
+	"mat4x3.hpp"
+	"mat4x4.hpp"
+	"trigonometric.hpp"
+	"exponential.hpp"
+	"common.hpp"
+	"packing.hpp"
+	"geometric.hpp"
+	"matrix.hpp"
+	"vector_relational.hpp"
+	"integer.hpp"
+
+1468698448 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\_fixes.hpp
+	<cmath>
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\fwd.hpp
+	"detail/type_int.hpp"
+	"detail/type_float.hpp"
+	"detail/type_vec.hpp"
+	"detail/type_mat.hpp"
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\type_int.hpp
+	"setup.hpp"
+	<type_traits>
+	<cstdint>
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\setup.hpp
+	<cassert>
+	<cstddef>
+	<cuda.h>
+	<intrin.h>
+	<immintrin.h>
+	<immintrin.h>
+	<smmintrin.h>
+	<pmmintrin.h>
+	<emmintrin.h>
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\type_float.hpp
+	"setup.hpp"
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\type_vec.hpp
+	"precision.hpp"
+	"type_int.hpp"
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\precision.hpp
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\type_mat.hpp
+	"precision.hpp"
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\vec2.hpp
+	"detail/type_vec2.hpp"
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\type_vec2.hpp
+	"type_vec.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec2.inl"
+
+1468698448 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\_swizzle.hpp
+
+1468698448 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\_swizzle_func.hpp
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\type_vec2.inl
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\vec3.hpp
+	"detail/type_vec3.hpp"
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\type_vec3.hpp
+	"type_vec.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec3.inl"
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\type_vec3.inl
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\vec4.hpp
+	"detail/type_vec4.hpp"
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\type_vec4.hpp
+	"setup.hpp"
+	"type_vec.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec4.inl"
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\type_vec4.inl
+	"type_vec4_sse2.inl"
+	"type_vec4_avx.inl"
+	"type_vec4_avx2.inl"
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\type_vec4_sse2.inl
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\type_vec4_avx.inl
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\type_vec4_avx2.inl
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\mat2x2.hpp
+	"detail/type_mat2x2.hpp"
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\type_mat2x2.hpp
+	"../fwd.hpp"
+	"type_vec2.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat2x2.inl"
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\type_mat2x2.inl
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\mat2x3.hpp
+	"detail/type_mat2x3.hpp"
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\type_mat2x3.hpp
+	"../fwd.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat2x3.inl"
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\type_mat2x3.inl
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\mat2x4.hpp
+	"detail/type_mat2x4.hpp"
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\type_mat2x4.hpp
+	"../fwd.hpp"
+	"type_vec2.hpp"
+	"type_vec4.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat2x4.inl"
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\type_mat2x4.inl
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\mat3x2.hpp
+	"detail/type_mat3x2.hpp"
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\type_mat3x2.hpp
+	"../fwd.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat3x2.inl"
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\type_mat3x2.inl
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\mat3x3.hpp
+	"detail/type_mat3x3.hpp"
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\type_mat3x3.hpp
+	"../fwd.hpp"
+	"type_vec3.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat3x3.inl"
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\type_mat3x3.inl
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\mat3x4.hpp
+	"detail/type_mat3x4.hpp"
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\type_mat3x4.hpp
+	"../fwd.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat3x4.inl"
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\type_mat3x4.inl
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\mat4x2.hpp
+	"detail/type_mat4x2.hpp"
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\type_mat4x2.hpp
+	"../fwd.hpp"
+	"type_vec2.hpp"
+	"type_vec4.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat4x2.inl"
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\type_mat4x2.inl
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\mat4x3.hpp
+	"detail/type_mat4x3.hpp"
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\type_mat4x3.hpp
+	"../fwd.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat4x3.inl"
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\type_mat4x3.inl
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\mat4x4.hpp
+	"detail/type_mat4x4.hpp"
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\type_mat4x4.hpp
+	"../fwd.hpp"
+	"type_vec4.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat4x4.inl"
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\type_mat4x4.inl
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\trigonometric.hpp
+	"detail/func_trigonometric.hpp"
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\func_trigonometric.hpp
+	"setup.hpp"
+	"precision.hpp"
+	"func_trigonometric.inl"
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\func_trigonometric.inl
+	"_vectorize.hpp"
+	<cmath>
+	<limits>
+
+1468698448 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\_vectorize.hpp
+	"type_vec1.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\type_vec1.hpp
+	"../fwd.hpp"
+	"type_vec.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec1.inl"
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\type_vec1.inl
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\exponential.hpp
+	"detail/func_exponential.hpp"
+
+1468698448 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\func_exponential.hpp
+	"type_vec1.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	<cmath>
+	"func_exponential.inl"
+
+1468698448 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\func_exponential.inl
+	"func_vector_relational.hpp"
+	"_vectorize.hpp"
+	<limits>
+	<cmath>
+	<cassert>
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\func_vector_relational.hpp
+	"precision.hpp"
+	"setup.hpp"
+	"func_vector_relational.inl"
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\func_vector_relational.inl
+	<limits>
+
+1468698448 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\common.hpp
+	"detail/func_common.hpp"
+
+1468698448 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\func_common.hpp
+	"setup.hpp"
+	"precision.hpp"
+	"type_int.hpp"
+	"_fixes.hpp"
+	"func_common.inl"
+
+1468698448 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\func_common.inl
+	"func_vector_relational.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	"_vectorize.hpp"
+	<limits>
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\packing.hpp
+	"detail/func_packing.hpp"
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\func_packing.hpp
+	"type_vec2.hpp"
+	"type_vec4.hpp"
+	"func_packing.inl"
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\func_packing.inl
+	"func_common.hpp"
+	"type_half.hpp"
+	"../fwd.hpp"
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\type_half.hpp
+	"setup.hpp"
+	"type_half.inl"
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\type_half.inl
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\geometric.hpp
+	"detail/func_geometric.hpp"
+
+1468698448 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\func_geometric.hpp
+	"type_vec3.hpp"
+	"func_geometric.inl"
+
+1468698448 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\func_geometric.inl
+	"func_exponential.hpp"
+	"func_common.hpp"
+	"type_vec2.hpp"
+	"type_vec4.hpp"
+	"type_float.hpp"
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\matrix.hpp
+	"detail/func_matrix.hpp"
+
+1468698448 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\func_matrix.hpp
+	"../detail/precision.hpp"
+	"../detail/setup.hpp"
+	"../detail/type_mat.hpp"
+	"../vec2.hpp"
+	"../vec3.hpp"
+	"../vec4.hpp"
+	"../mat2x2.hpp"
+	"../mat2x3.hpp"
+	"../mat2x4.hpp"
+	"../mat3x2.hpp"
+	"../mat3x3.hpp"
+	"../mat3x4.hpp"
+	"../mat4x2.hpp"
+	"../mat4x3.hpp"
+	"../mat4x4.hpp"
+	"func_matrix.inl"
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\func_matrix.inl
+	"../geometric.hpp"
+	<limits>
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\vector_relational.hpp
+	"detail/func_vector_relational.hpp"
+
+1468698450 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\integer.hpp
+	"detail/func_integer.hpp"
+
+1468698448 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\func_integer.hpp
+	"setup.hpp"
+	"precision.hpp"
+	"func_common.hpp"
+	"func_vector_relational.hpp"
+	"func_integer.inl"
+
+1468698448 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\glm\glm\detail\func_integer.inl
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	"type_int.hpp"
+	"_vectorize.hpp"
+	<intrin.h>
+	<limits>
+
+1507555300 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\include\pixel.h
+	<pixel.h>
+	<ColorDbl.h>
+	<Ray.h>
+
+1507109121 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\include\colordbl.h
+	"../glm/glm/glm.hpp"
+
+1507555300 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\include\ray.h
+	"../glm/glm/glm.hpp"
+	<Vertex.h>
+	<ColorDbl.h>
+	<Triangle.h>
+
+1507555300 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\include\triangle.h
+	<array>
+	<Vertex.h>
+	<Direction.h>
+	<ColorDbl.h>
+	<Surface.h>
+	"../glm/glm/glm.hpp"
+
+1507122336 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\include\direction.h
+	"../glm/glm/glm.hpp"
+	<Vertex.h>
+
+1507112634 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\include\surface.h
+	<ColorDbl.h>
+
+1507563364 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\include\scene.h
+	<vector>
+	<Triangle.h>
+	<Ray.h>
+	<Direction.h>
+
+1507109181 source:c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\src\colordbl.cpp
+	"ColorDbl.h"
+
+1507122342 source:c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\src\direction.cpp
+	"Direction.h"
+
+1507555300 source:c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\src\pixel.cpp
+	"Pixel.h"
+
+1507555300 source:c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\src\ray.cpp
+	"Ray.h"
+
+1507112620 source:c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\src\surface.cpp
+	"Surface.h"
+
+1507113566 source:c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\src\vertex.cpp
+	"Vertex.h"
+
+1507564179 source:c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\main.cpp
+	<iostream>
+	"glm/glm/glm.hpp"
+	"Scene.h"
+	"Camera.h"
+
+1507555300 source:c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\src\triangle.cpp
+	"Triangle.h"
+

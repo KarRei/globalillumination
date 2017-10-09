@@ -14,8 +14,8 @@ class Camera
         Camera();
         virtual ~Camera();
 
-        void Render();
-        void CreateImage();
+        void render(Scene&);
+        void createImage();
 
     protected:
 
