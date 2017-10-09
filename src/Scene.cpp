@@ -90,15 +90,14 @@ void Scene::rayIntersection(Ray& r)
     //Loop through all triangles in scene
     //Loop the current triangle
     Triangle* temp;
-    float distance = 1000.0f;
+    float distance = 1000.0f; //Arbitrary large number to check against distance to triangle
 
     for(vector<Triangle>::iterator it = triangles.begin(); it != triangles.end(); it++)
     {
-        //If true, intersection!
-
         //Passing it just passes an itterator object, it* passes the underlying object,
         //&(*it) passes the address to that underlying object
-        if (tryIntersection(r.getDirection(), r.getStart(), &(*it), distance))
+        // If true then there is an intersection!
+        if (tryIntersection(r.getDirection(), r.getStart(), *it, distance))
             temp = &(*it);
     }
 
@@ -106,21 +105,23 @@ void Scene::rayIntersection(Ray& r)
 
 }
 
-bool Scene::tryIntersection(glm::vec3 D, glm::vec3 start, Triangle* tri, float& d)
+bool Scene::tryIntersection(glm::vec3 D, glm::vec3 start, Triangle& tri, float& d)
 {
     //Möller Trumbore Algorithm
+    const float EPSILON = 0.0000001;
     float a, f, v, u;
     glm::vec3 e1, e2, T, P, Q;
-    e1 = tri->getPoint(2) - tri->getPoint(1);
-    e2 = tri->getPoint(3) - tri->getPoint(1);
+    e1 = tri.getPoint(2) - tri.getPoint(1);
+    e2 = tri.getPoint(3) - tri.getPoint(1);
 
-    T = start - tri->getPoint(1);
+    T = start - tri.getPoint(1);
     P = glm::normalize(glm::cross(D, e2));
     Q = glm::normalize(glm::cross(T, e1));
 
     a = glm::dot(P, e1);
 
-    if (a == 0.0) {
+    // For float numbers, don't check if they are exactly the same. Check whether their difference is very small
+    if (a > -EPSILON && a < EPSILON) {
         return false;
     }
     f = 1/a;
@@ -136,7 +137,8 @@ bool Scene::tryIntersection(glm::vec3 D, glm::vec3 start, Triangle* tri, float& 
 
     float t = f * glm::dot(Q, e2);
 
-    if (t > 1 && t < d) {
+    // if the intersection point lies behind the imageplane and the distance is smaller than a previous tringle
+    if (t > 1.0 && t < d) {
         d = t;
         return true;
     }

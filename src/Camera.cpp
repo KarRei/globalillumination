@@ -10,7 +10,7 @@ Camera::~Camera()
 }
 
 
-void Camera::render(Scene &scene) {
+void Camera::render(Scene &scene) { // const Scene, so we dont ccidentaly change something?
     //loop through the pixels
     //set pixel color from ray
 
@@ -34,7 +34,9 @@ void Camera::render(Scene &scene) {
 }
 
 void Camera::createImage() {
-    //loop through imgPlane and fill with Pixel-objects (call pixel constr with ray-reference)
+    // Loop through imagePlane, convert the ColorDbl attibutes of the Pixel-objects
+    // to a RGB-vector with integer values (in the range 0-255, a colorDbl has values in range 0.0-1.0)
+
     //Crete image file
     for (int z = 0; z < max_val; z++) {
         for (int y = 0; y < max_val; y++) {

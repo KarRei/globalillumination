@@ -16,7 +16,7 @@ class Scene
         void createRoom();
 
         void rayIntersection(Ray& r);
-        bool tryIntersection(glm::vec3 D, glm::vec3 start, Triangle* t, float& d);
+        bool tryIntersection(glm::vec3 D, glm::vec3 start, Triangle& t, float& d);
 
     protected:
 
