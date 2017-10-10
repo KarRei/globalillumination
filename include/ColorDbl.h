@@ -10,6 +10,8 @@ class ColorDbl
         ColorDbl(glm::vec3);
         virtual ~ColorDbl();
 
+        glm::vec3 getColorVec();
+
     protected:
 
     private:

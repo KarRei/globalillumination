@@ -13,6 +13,8 @@ class Pixel
         Pixel(ColorDbl);
         virtual ~Pixel();
 
+        glm::vec3 getColor();
+
     protected:
 
     private:
