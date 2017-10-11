@@ -108,7 +108,7 @@ void Scene::rayIntersection(Ray& r)
 bool Scene::tryIntersection(glm::vec3 D, glm::vec3 start, Triangle& tri, float& d)
 {
     //Möller Trumbore Algorithm
-    const float EPSILON = 0.0000001;
+    const float ZERO = 0.0000001;
     float a, f, v, u;
     glm::vec3 e1, e2, T, P, Q;
     e1 = tri.getPoint(2) - tri.getPoint(1);
@@ -121,7 +121,7 @@ bool Scene::tryIntersection(glm::vec3 D, glm::vec3 start, Triangle& tri, float& 
     a = glm::dot(P, e1);
 
     // For float numbers, don't check if they are exactly the same. Check whether their difference is very small
-    if (a > -EPSILON && a < EPSILON) {
+    if (a > -ZERO && a < ZERO) {
         return false;
     }
     f = 1/a;

@@ -14,3 +14,7 @@ ColorDbl::~ColorDbl()
 {
     //dtor
 }
+
+glm::vec3 ColorDbl::getColorVec() {
+    return color;
+}

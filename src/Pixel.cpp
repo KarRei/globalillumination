@@ -15,3 +15,7 @@ Pixel::~Pixel()
 {
     //dtor
 }
+
+glm::vec3 Pixel::getColor() {
+    return color.getColorVec();
+}

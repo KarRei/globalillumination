@@ -461,10 +461,11 @@
 1507113566 source:h:\tncg15\cbglobalillumination\src\vertex.cpp
 	"Vertex.h"
 
-1507475081 source:h:\tncg15\globalillumination\main.cpp
+1507636423 source:h:\tncg15\globalillumination\main.cpp
 	<iostream>
 	"glm/glm/glm.hpp"
 	"Scene.h"
+	"Camera.h"
 
 1507462552 h:\tncg15\globalillumination\glm\glm\glm.hpp
 	"detail/_fixes.hpp"
@@ -858,41 +859,46 @@
 	<intrin.h>
 	<limits>
 
-1507475965 source:h:\tncg15\globalillumination\src\camera.cpp
+1507636073 source:h:\tncg15\globalillumination\src\camera.cpp
 	"Camera.h"
 
-1507474512 h:\tncg15\globalillumination\include\camera.h
+1507636434 h:\tncg15\globalillumination\include\camera.h
 	"Vertex.h"
 	"Pixel.h"
 	"Scene.h"
 	<Direction.h>
 	"../glm/glm/glm.hpp"
+	<stdlib.h>
+	<stdio.h>
+	<math.h>
+	<iomanip>
+	<iostream>
 
 1507462555 h:\tncg15\globalillumination\include\vertex.h
 	"../glm/glm/glm.hpp"
 
-1507474291 h:\tncg15\globalillumination\include\pixel.h
+1507628666 h:\tncg15\globalillumination\include\pixel.h
 	<pixel.h>
 	<ColorDbl.h>
 	<Ray.h>
 
-1507462555 h:\tncg15\globalillumination\include\colordbl.h
+1507628641 h:\tncg15\globalillumination\include\colordbl.h
 	"../glm/glm/glm.hpp"
 
 1507462555 h:\tncg15\globalillumination\include\direction.h
 	"../glm/glm/glm.hpp"
 	<Vertex.h>
 
-1507462556 source:h:\tncg15\globalillumination\src\colordbl.cpp
+1507630490 source:h:\tncg15\globalillumination\src\colordbl.cpp
 	"ColorDbl.h"
 
 1507462556 source:h:\tncg15\globalillumination\src\direction.cpp
 	"Direction.h"
 
-1507462556 source:h:\tncg15\globalillumination\src\scene.cpp
+1507627450 source:h:\tncg15\globalillumination\src\scene.cpp
 	"Scene.h"
 
-1507478440 h:\tncg15\globalillumination\include\scene.h
+1507627174 h:\tncg15\globalillumination\include\scene.h
 	<vector>
 	<Triangle.h>
 	<Ray.h>
@@ -921,7 +927,7 @@
 1507462556 source:h:\tncg15\globalillumination\src\vertex.cpp
 	"Vertex.h"
 
-1507476103 source:h:\tncg15\globalillumination\src\pixel.cpp
+1507628699 source:h:\tncg15\globalillumination\src\pixel.cpp
 	"Pixel.h"
 
 1507476117 source:h:\tncg15\globalillumination\src\ray.cpp
@@ -1392,5 +1398,8 @@
 	"Camera.h"
 
 1507555300 source:c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\src\triangle.cpp
+	"Triangle.h"
+
+1507474092 source:h:\tncg15\globalillumination\src\triangle.cpp
 	"Triangle.h"
 
