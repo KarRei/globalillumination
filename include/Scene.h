@@ -5,6 +5,9 @@
 #include <Triangle.h>
 #include <Ray.h>
 #include <Direction.h>
+#include <iostream>
+#include <string>
+#include <iomanip>
 
 using namespace std;
 

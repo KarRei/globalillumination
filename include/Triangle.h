@@ -14,7 +14,7 @@ class Triangle
 {
     public:
         Triangle();
-        Triangle(Vertex a, Vertex b, Vertex c, Surface s);
+        Triangle(glm::vec3, glm::vec3, glm::vec3, Surface);
         virtual ~Triangle();
 
         glm::vec3 getPoint(int p);
@@ -26,9 +26,9 @@ class Triangle
     protected:
 
     private:
-        Vertex pointPos1;
-        Vertex pointPos2;
-        Vertex pointPos3;
+        glm::vec3 pointPos1;
+        glm::vec3 pointPos2;
+        glm::vec3 pointPos3;
         //Surface surface;
         Direction normal;
         ColorDbl color;

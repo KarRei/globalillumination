@@ -1,7 +1,7 @@
 #include "Pixel.h"
 
 Pixel::Pixel()
-: color(glm::vec3(0.0f, 0.0f, 0.0f))
+: color(ColorDbl(glm::vec3(0.0f, 0.0f, 0.0f)))
 {
 }
 
@@ -18,4 +18,8 @@ Pixel::~Pixel()
 
 glm::vec3 Pixel::getColor() {
     return color.getColorVec();
+}
+
+void Pixel::setColor(ColorDbl c) {
+    color = c;
 }

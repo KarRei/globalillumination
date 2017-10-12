@@ -22,7 +22,7 @@ void Scene::createRoom(){
 
     //Create surfaces
     Surface wall1(ColorDbl(glm::vec3(1.0f, 0.0f, 0.0f))); //red
-    Surface wall2(ColorDbl(glm::vec3(0.0f, 0.0f, 1.0f))); //blur
+    Surface wall2(ColorDbl(glm::vec3(0.0f, 0.0f, 1.0f))); //blue
     Surface wall3(ColorDbl(glm::vec3(0.0f, 1.0f, 0.0f))); //green
     Surface wall4(ColorDbl(glm::vec3(1.0f, 1.0f, 0.0f))); //yellow
     Surface wall5(ColorDbl(glm::vec3(1.0f, 0.0f, 1.0f))); //purple
@@ -99,10 +99,15 @@ void Scene::rayIntersection(Ray& r)
         // If true then there is an intersection!
         if (tryIntersection(r.getDirection(), r.getStart(), *it, distance))
             temp = &(*it);
+
     }
 
-    r.setColor(temp->getColor());
+    // Värden antingen 0.000 eller 1.000 (säkert 0.6 också), rimligt.
+    //glm::vec3 c = temp->getColor().getColorVec();
+    //std::cout << std::fixed << std::setprecision(3) << c.g << endl;
 
+    // Har testat att det som läggs till är värden som är våra vägg färger och det stämmer
+    r.setColor(temp->getColor());
 }
 
 bool Scene::tryIntersection(glm::vec3 D, glm::vec3 start, Triangle& tri, float& d)

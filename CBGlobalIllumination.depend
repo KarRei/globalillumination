@@ -933,7 +933,7 @@
 1507476117 source:h:\tncg15\globalillumination\src\ray.cpp
 	"Ray.h"
 
-1507736499 source:c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\src\camera.cpp
+1507814299 source:c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\src\camera.cpp
 	"Camera.h"
 
 1507801113 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\include\camera.h
@@ -1343,7 +1343,7 @@
 	<intrin.h>
 	<limits>
 
-1507730895 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\include\pixel.h
+1507805169 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\include\pixel.h
 	<pixel.h>
 	<ColorDbl.h>
 	<Ray.h>
@@ -1357,7 +1357,7 @@
 	<ColorDbl.h>
 	<Triangle.h>
 
-1507555300 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\include\triangle.h
+1507804105 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\include\triangle.h
 	<array>
 	<Vertex.h>
 	<Direction.h>
@@ -1372,11 +1372,14 @@
 1507112634 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\include\surface.h
 	<ColorDbl.h>
 
-1507733367 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\include\scene.h
+1507804673 c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\include\scene.h
 	<vector>
 	<Triangle.h>
 	<Ray.h>
 	<Direction.h>
+	<iostream>
+	<string>
+	<iomanip>
 
 1507730895 source:c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\src\colordbl.cpp
 	"ColorDbl.h"
@@ -1384,7 +1387,7 @@
 1507122342 source:c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\src\direction.cpp
 	"Direction.h"
 
-1507730895 source:c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\src\pixel.cpp
+1507805328 source:c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\src\pixel.cpp
 	"Pixel.h"
 
 1507555300 source:c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\src\ray.cpp
@@ -1402,12 +1405,12 @@
 	"Scene.h"
 	"Camera.h"
 
-1507555300 source:c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\src\triangle.cpp
+1507803995 source:c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\src\triangle.cpp
 	"Triangle.h"
 
 1507474092 source:h:\tncg15\globalillumination\src\triangle.cpp
 	"Triangle.h"
 
-1507733367 source:c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\src\scene.cpp
+1507814974 source:c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\src\scene.cpp
 	"Scene.h"
 

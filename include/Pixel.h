@@ -14,6 +14,7 @@ class Pixel
         virtual ~Pixel();
 
         glm::vec3 getColor();
+        void setColor(ColorDbl);
 
     protected:
 

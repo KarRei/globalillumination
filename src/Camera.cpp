@@ -2,8 +2,6 @@
 
 Camera::Camera()
 {
-    cout << "constructing camera" << endl;
-
     eye = glm::vec3(-2.0f, 0.0f, 0.0f);
     for (int i = 0; i < 1000; i++)
         imagePlane[i] = new Pixel[1000];
@@ -20,18 +18,32 @@ void Camera::render(Scene& scene) { // const Scene, so we dont accidentaly chang
     //set pixel color from ray
 
     for (int z =  0; z < max_val; z++) {
-        for (int y = 0; y < max_val; y++) {
+        for (int y = 0; y < max_val; y++)
 
+            // Värden mellan -0.999 och .999 (-1 och 1)
             glm::vec3 imagePlanePosition(0, y*0.002 - 0.999, z*0.002 - 0.999);
 
             //crete a ray from the eye to current pixel
             Ray r(eye, imagePlanePosition);
 
+            /*if (z==0 && y == 0)
+                std::cout << std::fixed << std::setprecision(3) << imagePlane[y][z].getColor().g << endl;
+            else if (z==100 && y == 100)
+                std::cout << std::fixed << std::setprecision(3) << imagePlane[y][z].getColor().b << endl;*/
+
             // Launch the ray into the scene. The function will take the reference to the ray and set it's color.
            scene.rayIntersection(r);
+           //after rayIntersection r's color (colorDbl) has changes to the triangle color that it hits
 
-            //Create a new pixel with the color from the ray and store it in imagePlane
-            imagePlane[z][y] = Pixel(r.getColor());
+            //imagePlane[][] är en array av pekare till arrayer, hur funkar det när det inte är ett riktigt Pixelobj?
+            imagePlane[y][z].setColor(r.getColor());
+            //imagePlane[y][z].setColor(ColorDbl(glm::vec3(0.0f, 0.0f, 1.0f)));
+
+
+            if (z==0 && y == 0)
+                std::cout << std::fixed << std::setprecision(3) << imagePlane[y][z].getColor().g << endl;
+            else if (z==1 && y == 1)
+                std::cout << std::fixed << std::setprecision(3) << imagePlane[y][z].getColor().b << endl;
         }
     }
 
@@ -55,9 +67,8 @@ void Camera::createImage(const string filename) {
 
                 glm::vec3 RGB;
 
-                int i_max = 0;
+                float i_max = imagePlane[y][z].getColor().x;
                 //if (imagePlane[y][z].getColor[i] > i_max)
-                i_max = imagePlane[y][z].getColor().x;
 
                 if (imagePlane[y][z].getColor().y > i_max)
                     i_max = imagePlane[y][z].getColor().y;
@@ -65,15 +76,15 @@ void Camera::createImage(const string filename) {
                 if (imagePlane[y][z].getColor().z > i_max)
                     i_max = imagePlane[y][z].getColor().z;
 
-                //imagePlaneRGB[y][z].x = (int)((255.99 / i_max)*(imagePlane[y][z].getColor().x));
-                //imagePlaneRGB[y][z].y = (int)((255.99 / i_max)*(imagePlane[y][z].getColor().y));
-                //imagePlaneRGB[y][z].z = (int)((255.99 / i_max)*(imagePlane[y][z].getColor().z));
+                RGB.r = (int)((255.99 / i_max)*(imagePlane[y][z].getColor().r));
+                //RGB.r = 0;
+                RGB.g = (int)((255.99 / i_max)*(imagePlane[y][z].getColor().g));
+                //RGB.g = 255;
+                RGB.b = (int)((255.99 / i_max)*(imagePlane[y][z].getColor().b));
+                //RGB.b = 0;
 
-                RGB.r = (int)((255.99 / i_max)*(imagePlane[y][z].getColor().x));
-                RGB.g = (int)((255.99 / i_max)*(imagePlane[y][z].getColor().y));
-                RGB.b = (int)((255.99 / i_max)*(imagePlane[y][z].getColor().z));
-
-                fprintf(fp, "%d %d %d ", RGB.r, RGB.g, RGB.b);
+                //OMG det har bara har varit (int) grejerna som skapat kaos!!
+                fprintf(fp, "%d %d %d ", (int)RGB.r, (int)RGB.g, (int)RGB.b);
 
 
         }
