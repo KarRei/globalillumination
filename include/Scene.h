@@ -12,7 +12,7 @@ class Scene
 {
     public:
         Scene();
-        virtual ~Scene();
+        //virtual ~Scene();
         void createRoom();
 
         void rayIntersection(Ray& r);

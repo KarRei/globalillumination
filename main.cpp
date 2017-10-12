@@ -12,10 +12,12 @@ int main() {
     cout << "1" << endl;
     Scene scene;
     cout << "2" << endl;
-    Camera camera;
+    Camera cam;
     cout << "3" << endl;
-    camera.render(scene);
-cout << "4" << endl;
+    cam.render(scene);
+    cout << "4" << endl;
+    cam.createImage();
+    cout << "5" << endl;
 
 
     return 0;

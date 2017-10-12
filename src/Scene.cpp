@@ -5,10 +5,10 @@ Scene::Scene()
     createRoom();
 }
 
-Scene::~Scene()
+/*Scene::~Scene()
 {
 
-}
+}*/
 
 void Scene::createRoom(){
 
