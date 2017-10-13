@@ -102,11 +102,6 @@ void Scene::rayIntersection(Ray& r)
 
     }
 
-    // Värden antingen 0.000 eller 1.000 (säkert 0.6 också), rimligt.
-    //glm::vec3 c = temp->getColor().getColorVec();
-    //std::cout << std::fixed << std::setprecision(3) << c.g << endl;
-
-    // Har testat att det som läggs till är värden som är våra vägg färger och det stämmer
     r.setColor(temp->getColor());
 }
 

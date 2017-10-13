@@ -18,32 +18,33 @@ void Camera::render(Scene& scene) { // const Scene, so we dont accidentaly chang
     //set pixel color from ray
 
     for (int z =  0; z < max_val; z++) {
-        for (int y = 0; y < max_val; y++)
+        for (int y = 0; y < max_val; y++) {
 
             // Värden mellan -0.999 och .999 (-1 och 1)
             glm::vec3 imagePlanePosition(0, y*0.002 - 0.999, z*0.002 - 0.999);
 
             //crete a ray from the eye to current pixel
             Ray r(eye, imagePlanePosition);
-
-            /*if (z==0 && y == 0)
-                std::cout << std::fixed << std::setprecision(3) << imagePlane[y][z].getColor().g << endl;
-            else if (z==100 && y == 100)
-                std::cout << std::fixed << std::setprecision(3) << imagePlane[y][z].getColor().b << endl;*/
-
             // Launch the ray into the scene. The function will take the reference to the ray and set it's color.
            scene.rayIntersection(r);
            //after rayIntersection r's color (colorDbl) has changes to the triangle color that it hits
 
-            //imagePlane[][] är en array av pekare till arrayer, hur funkar det när det inte är ett riktigt Pixelobj?
+           // obviously, if the values of the colordbl is all 0.0, it will be wrong in createImage since we're trying to divide by zero.
+           if (z==1 && y == 1) // this has not changed. giving 0.0. SOMETHING IS WRONG IN rayIntersection!!!
+            {
+                std::cout << std::fixed << std::setprecision(3) << r.getColor().getColorVec().r << endl;
+                std::cout << std::fixed << std::setprecision(3) << r.getColor().getColorVec().g << endl;
+                std::cout << std::fixed << std::setprecision(3) << r.getColor().getColorVec().b << endl;
+            }
+            else if (z==100 && y == 100) //This has changed 1.0, 1.0, 0.0 = yellow
+            {
+                std::cout << std::fixed << std::setprecision(3) << r.getColor().getColorVec().r << endl;
+                std::cout << std::fixed << std::setprecision(3) << r.getColor().getColorVec().g << endl;
+                std::cout << std::fixed << std::setprecision(3) << r.getColor().getColorVec().b << endl;
+            }
+
             imagePlane[y][z].setColor(r.getColor());
-            //imagePlane[y][z].setColor(ColorDbl(glm::vec3(0.0f, 0.0f, 1.0f)));
 
-
-            if (z==0 && y == 0)
-                std::cout << std::fixed << std::setprecision(3) << imagePlane[y][z].getColor().g << endl;
-            else if (z==1 && y == 1)
-                std::cout << std::fixed << std::setprecision(3) << imagePlane[y][z].getColor().b << endl;
         }
     }
 
@@ -55,8 +56,6 @@ void Camera::createImage(const string filename) {
     // to a RGB-vector with integer values (in the range 0-255, a colorDbl has values in range 0.0-1.0)
 
     //Crete image file
-    //glm::vec3 imagePlaneRGB[1000][1000]; // kanske också för stor? går det att inte ha en ny array...?
-
     FILE *fp = fopen(filename.c_str(), "wb");
     fprintf(fp, "P3\n%d %d\n255\n", 1000, 1000);
 
@@ -68,7 +67,6 @@ void Camera::createImage(const string filename) {
                 glm::vec3 RGB;
 
                 float i_max = imagePlane[y][z].getColor().x;
-                //if (imagePlane[y][z].getColor[i] > i_max)
 
                 if (imagePlane[y][z].getColor().y > i_max)
                     i_max = imagePlane[y][z].getColor().y;
@@ -76,14 +74,11 @@ void Camera::createImage(const string filename) {
                 if (imagePlane[y][z].getColor().z > i_max)
                     i_max = imagePlane[y][z].getColor().z;
 
-                RGB.r = (int)((255.99 / i_max)*(imagePlane[y][z].getColor().r));
-                //RGB.r = 0;
-                RGB.g = (int)((255.99 / i_max)*(imagePlane[y][z].getColor().g));
-                //RGB.g = 255;
-                RGB.b = (int)((255.99 / i_max)*(imagePlane[y][z].getColor().b));
-                //RGB.b = 0;
+                RGB.r = (255.99 / i_max)*(imagePlane[y][z].getColor().r);
+                RGB.g = (255.99 / i_max)*(imagePlane[y][z].getColor().g);
+                RGB.b = (255.99 / i_max)*(imagePlane[y][z].getColor().b);
 
-                //OMG det har bara har varit (int) grejerna som skapat kaos!!
+                // OBS (int) grejerna är viktiga!
                 fprintf(fp, "%d %d %d ", (int)RGB.r, (int)RGB.g, (int)RGB.b);
 
 
