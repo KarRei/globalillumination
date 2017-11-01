@@ -5,6 +5,7 @@
 #include <Triangle.h>
 #include <Ray.h>
 #include <Direction.h>
+#include <Sphere.h>
 #include <iostream>
 #include <string>
 #include <iomanip>
@@ -19,12 +20,14 @@ class Scene
         void createRoom();
 
         void rayIntersection(Ray& r);
-        bool tryIntersection(glm::vec3 D, glm::vec3 start, Triangle& t, float& d);
+        bool tryIntersectionTriangle(glm::vec3 D, glm::vec3 start, Triangle& t, float& d);
+        bool tryIntersectionSphere(glm::vec3 direction, glm::vec3 start, Sphere& sph, float& distance);
 
     protected:
 
     private:
         vector<Triangle> triangles;
+        vector<Sphere> spheres;
 };
 
 #endif // SCENE_H

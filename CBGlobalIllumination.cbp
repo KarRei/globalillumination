@@ -39,6 +39,7 @@
 		<Unit filename="include/Pixel.h" />
 		<Unit filename="include/Ray.h" />
 		<Unit filename="include/Scene.h" />
+		<Unit filename="include/Sphere.h" />
 		<Unit filename="include/Surface.h" />
 		<Unit filename="include/Triangle.h" />
 		<Unit filename="include/Vertex.h" />
@@ -49,6 +50,7 @@
 		<Unit filename="src/Pixel.cpp" />
 		<Unit filename="src/Ray.cpp" />
 		<Unit filename="src/Scene.cpp" />
+		<Unit filename="src/Sphere.cpp" />
 		<Unit filename="src/Surface.cpp" />
 		<Unit filename="src/Triangle.cpp" />
 		<Unit filename="src/Vertex.cpp" />

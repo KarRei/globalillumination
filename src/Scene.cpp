@@ -78,6 +78,34 @@ void Scene::createRoom(){
 
     //Objects
 
+    //Defining points of Tetrahedron (consists of 4 triangles)
+    glm::vec3 tetra1(11.0f, 4.0f, 3.0f);
+    glm::vec3 tetra2(10.0f, 5.0f, -1.0f);
+    glm::vec3 tetra3(10.0f, 0.0f, -1.0f);
+    glm::vec3 tetra4(12.0f, 3.0f, -1.0f);
+
+    Surface tetra_col(ColorDbl(glm::vec3(0.0f, 1.0f, 1.0f))); //turquose
+
+    Triangle tetra_tri1(tetra1, tetra2, tetra3, tetra_col);
+    Triangle tetra_tri2(tetra1, tetra3, tetra4, tetra_col);
+    Triangle tetra_tri3(tetra1, tetra4, tetra2, tetra_col);
+    Triangle tetra_tri4(tetra2, tetra4, tetra3, tetra_col);
+
+    triangles.push_back(tetra_tri1);
+    triangles.push_back(tetra_tri2);
+    triangles.push_back(tetra_tri3);
+    triangles.push_back(tetra_tri4);
+
+
+    //Defining points of Sphere
+    Surface sphere_color(ColorDbl(glm::vec3(1.0f, 0.01f, 0.5f))); //pink
+
+    Sphere s1(glm::vec3 (8.0f, -3.0f, 0.0f), 1.0f, sphere_color );
+
+    spheres.push_back(s1);
+
+
+
     //Light
 
 
@@ -91,21 +119,68 @@ void Scene::rayIntersection(Ray& r)
     //Loop the current triangle
     Triangle* temp;
     float distance = 1000.0f; //Arbitrary large number to check against distance to triangle
+    bool sphere_intersection = false;
 
+    //Test triangle intersection
     for(vector<Triangle>::iterator it = triangles.begin(); it != triangles.end(); it++)
     {
         //Passing it just passes an itterator object, it* passes the underlying object,
         //&(*it) passes the address to that underlying object
         // If true then there is an intersection!
-        if (tryIntersection(glm::normalize(r.getDirection()), r.getStart(), *it, distance))
+        if (tryIntersectionTriangle(glm::normalize(r.getDirection()), r.getStart(), *it, distance))
             temp = &(*it);
 
     }
 
-    r.setColor(temp->getColor());
+    //test sphere intersection
+    Sphere* temp_sp;
+    for(vector<Sphere>::iterator it = spheres.begin(); it != spheres.end(); it++)
+    {
+        if (tryIntersectionSphere(glm::normalize(r.getDirection()), r.getStart(), *it, distance))
+        {
+            temp_sp = &(*it);
+            sphere_intersection = true;
+            cout << "sphere true" << endl;
+        }
+    }
+
+    if (sphere_intersection)
+        r.setColor(temp_sp->getColor());
+
+    else
+        r.setColor(temp->getColor());
 }
 
-bool Scene::tryIntersection(glm::vec3 D, glm::vec3 start, Triangle& tri, float& d)
+
+bool Scene::tryIntersectionSphere(glm::vec3 direction, glm::vec3 start, Sphere& sph, float& distance)
+{
+    const float ZERO = 0.0000001;
+    float radius = sph.getRadius();
+    glm::vec3 center = sph.getPosition();
+
+    float a = 1.0f;
+    float b = glm::dot((glm::vec3(2.0, 2.0, 2.0)*direction),(start - sph.getPosition()));
+    float c = glm::dot( (start - sph.getPosition()) , (start - sph.getPosition()) ) - pow(radius, 2.0);
+
+    float d = -(b / 2.0) + sqrt(pow( (b / 2.0), 2.0) - a*c);
+
+    glm::vec3 x = start + (d * sph.getPosition());
+
+    float difference = pow(radius, 2.0) - pow(glm::length(x - sph.getPosition()), 2.0);
+
+    //Ended here, problem difference = nan
+    cout << "diff: " << difference << endl;
+
+    if (difference > -ZERO && difference < ZERO)
+    {
+        distance = d;
+        return true;
+    }
+
+    return false;
+}
+
+bool Scene::tryIntersectionTriangle(glm::vec3 D, glm::vec3 start, Triangle& tri, float& d)
 {
     //Möller Trumbore Algorithm
     const float ZERO = 0.0000001;
