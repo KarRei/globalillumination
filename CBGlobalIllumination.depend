@@ -461,13 +461,13 @@
 1507113566 source:h:\tncg15\cbglobalillumination\src\vertex.cpp
 	"Vertex.h"
 
-1507636423 source:h:\tncg15\globalillumination\main.cpp
+1509537533 source:h:\tncg15\globalillumination\main.cpp
 	<iostream>
 	"glm/glm/glm.hpp"
 	"Scene.h"
 	"Camera.h"
 
-1507462552 h:\tncg15\globalillumination\glm\glm\glm.hpp
+1507458952 h:\tncg15\globalillumination\glm\glm\glm.hpp
 	"detail/_fixes.hpp"
 	<cmath>
 	<climits>
@@ -496,21 +496,21 @@
 	"vector_relational.hpp"
 	"integer.hpp"
 
-1507462551 h:\tncg15\globalillumination\glm\glm\detail\_fixes.hpp
+1507458951 h:\tncg15\globalillumination\glm\glm\detail\_fixes.hpp
 	<cmath>
 
-1507462552 h:\tncg15\globalillumination\glm\glm\fwd.hpp
+1507458952 h:\tncg15\globalillumination\glm\glm\fwd.hpp
 	"detail/type_int.hpp"
 	"detail/type_float.hpp"
 	"detail/type_vec.hpp"
 	"detail/type_mat.hpp"
 
-1507462552 h:\tncg15\globalillumination\glm\glm\detail\type_int.hpp
+1507458952 h:\tncg15\globalillumination\glm\glm\detail\type_int.hpp
 	"setup.hpp"
 	<type_traits>
 	<cstdint>
 
-1507462552 h:\tncg15\globalillumination\glm\glm\detail\setup.hpp
+1507458952 h:\tncg15\globalillumination\glm\glm\detail\setup.hpp
 	<cassert>
 	<cstddef>
 	<cuda.h>
@@ -521,50 +521,50 @@
 	<pmmintrin.h>
 	<emmintrin.h>
 
-1507462552 h:\tncg15\globalillumination\glm\glm\detail\type_float.hpp
+1507458952 h:\tncg15\globalillumination\glm\glm\detail\type_float.hpp
 	"setup.hpp"
 
-1507462552 h:\tncg15\globalillumination\glm\glm\detail\type_vec.hpp
+1507458952 h:\tncg15\globalillumination\glm\glm\detail\type_vec.hpp
 	"precision.hpp"
 	"type_int.hpp"
 
-1507462552 h:\tncg15\globalillumination\glm\glm\detail\precision.hpp
+1507458952 h:\tncg15\globalillumination\glm\glm\detail\precision.hpp
 
-1507462552 h:\tncg15\globalillumination\glm\glm\detail\type_mat.hpp
+1507458952 h:\tncg15\globalillumination\glm\glm\detail\type_mat.hpp
 	"precision.hpp"
 
-1507462554 h:\tncg15\globalillumination\glm\glm\vec2.hpp
+1507458954 h:\tncg15\globalillumination\glm\glm\vec2.hpp
 	"detail/type_vec2.hpp"
 
-1507462552 h:\tncg15\globalillumination\glm\glm\detail\type_vec2.hpp
+1507458952 h:\tncg15\globalillumination\glm\glm\detail\type_vec2.hpp
 	"type_vec.hpp"
 	"_swizzle.hpp"
 	"_swizzle_func.hpp"
 	<cstddef>
 	"type_vec2.inl"
 
-1507462551 h:\tncg15\globalillumination\glm\glm\detail\_swizzle.hpp
+1507458951 h:\tncg15\globalillumination\glm\glm\detail\_swizzle.hpp
 
-1507462551 h:\tncg15\globalillumination\glm\glm\detail\_swizzle_func.hpp
+1507458951 h:\tncg15\globalillumination\glm\glm\detail\_swizzle_func.hpp
 
-1507462552 h:\tncg15\globalillumination\glm\glm\detail\type_vec2.inl
+1507458952 h:\tncg15\globalillumination\glm\glm\detail\type_vec2.inl
 
-1507462554 h:\tncg15\globalillumination\glm\glm\vec3.hpp
+1507458954 h:\tncg15\globalillumination\glm\glm\vec3.hpp
 	"detail/type_vec3.hpp"
 
-1507462552 h:\tncg15\globalillumination\glm\glm\detail\type_vec3.hpp
+1507458952 h:\tncg15\globalillumination\glm\glm\detail\type_vec3.hpp
 	"type_vec.hpp"
 	"_swizzle.hpp"
 	"_swizzle_func.hpp"
 	<cstddef>
 	"type_vec3.inl"
 
-1507462552 h:\tncg15\globalillumination\glm\glm\detail\type_vec3.inl
+1507458952 h:\tncg15\globalillumination\glm\glm\detail\type_vec3.inl
 
-1507462554 h:\tncg15\globalillumination\glm\glm\vec4.hpp
+1507458954 h:\tncg15\globalillumination\glm\glm\vec4.hpp
 	"detail/type_vec4.hpp"
 
-1507462552 h:\tncg15\globalillumination\glm\glm\detail\type_vec4.hpp
+1507458952 h:\tncg15\globalillumination\glm\glm\detail\type_vec4.hpp
 	"setup.hpp"
 	"type_vec.hpp"
 	"_swizzle.hpp"
@@ -572,21 +572,21 @@
 	<cstddef>
 	"type_vec4.inl"
 
-1507462552 h:\tncg15\globalillumination\glm\glm\detail\type_vec4.inl
+1507458952 h:\tncg15\globalillumination\glm\glm\detail\type_vec4.inl
 	"type_vec4_sse2.inl"
 	"type_vec4_avx.inl"
 	"type_vec4_avx2.inl"
 
-1507462552 h:\tncg15\globalillumination\glm\glm\detail\type_vec4_sse2.inl
+1507458952 h:\tncg15\globalillumination\glm\glm\detail\type_vec4_sse2.inl
 
-1507462552 h:\tncg15\globalillumination\glm\glm\detail\type_vec4_avx.inl
+1507458952 h:\tncg15\globalillumination\glm\glm\detail\type_vec4_avx.inl
 
-1507462552 h:\tncg15\globalillumination\glm\glm\detail\type_vec4_avx2.inl
+1507458952 h:\tncg15\globalillumination\glm\glm\detail\type_vec4_avx2.inl
 
-1507462554 h:\tncg15\globalillumination\glm\glm\mat2x2.hpp
+1507458954 h:\tncg15\globalillumination\glm\glm\mat2x2.hpp
 	"detail/type_mat2x2.hpp"
 
-1507462552 h:\tncg15\globalillumination\glm\glm\detail\type_mat2x2.hpp
+1507458952 h:\tncg15\globalillumination\glm\glm\detail\type_mat2x2.hpp
 	"../fwd.hpp"
 	"type_vec2.hpp"
 	"type_mat.hpp"
@@ -594,12 +594,12 @@
 	<cstddef>
 	"type_mat2x2.inl"
 
-1507462552 h:\tncg15\globalillumination\glm\glm\detail\type_mat2x2.inl
+1507458952 h:\tncg15\globalillumination\glm\glm\detail\type_mat2x2.inl
 
-1507462554 h:\tncg15\globalillumination\glm\glm\mat2x3.hpp
+1507458954 h:\tncg15\globalillumination\glm\glm\mat2x3.hpp
 	"detail/type_mat2x3.hpp"
 
-1507462552 h:\tncg15\globalillumination\glm\glm\detail\type_mat2x3.hpp
+1507458952 h:\tncg15\globalillumination\glm\glm\detail\type_mat2x3.hpp
 	"../fwd.hpp"
 	"type_vec2.hpp"
 	"type_vec3.hpp"
@@ -608,12 +608,12 @@
 	<cstddef>
 	"type_mat2x3.inl"
 
-1507462552 h:\tncg15\globalillumination\glm\glm\detail\type_mat2x3.inl
+1507458952 h:\tncg15\globalillumination\glm\glm\detail\type_mat2x3.inl
 
-1507462554 h:\tncg15\globalillumination\glm\glm\mat2x4.hpp
+1507458954 h:\tncg15\globalillumination\glm\glm\mat2x4.hpp
 	"detail/type_mat2x4.hpp"
 
-1507462552 h:\tncg15\globalillumination\glm\glm\detail\type_mat2x4.hpp
+1507458952 h:\tncg15\globalillumination\glm\glm\detail\type_mat2x4.hpp
 	"../fwd.hpp"
 	"type_vec2.hpp"
 	"type_vec4.hpp"
@@ -622,12 +622,12 @@
 	<cstddef>
 	"type_mat2x4.inl"
 
-1507462552 h:\tncg15\globalillumination\glm\glm\detail\type_mat2x4.inl
+1507458952 h:\tncg15\globalillumination\glm\glm\detail\type_mat2x4.inl
 
-1507462554 h:\tncg15\globalillumination\glm\glm\mat3x2.hpp
+1507458954 h:\tncg15\globalillumination\glm\glm\mat3x2.hpp
 	"detail/type_mat3x2.hpp"
 
-1507462552 h:\tncg15\globalillumination\glm\glm\detail\type_mat3x2.hpp
+1507458952 h:\tncg15\globalillumination\glm\glm\detail\type_mat3x2.hpp
 	"../fwd.hpp"
 	"type_vec2.hpp"
 	"type_vec3.hpp"
@@ -636,12 +636,12 @@
 	<cstddef>
 	"type_mat3x2.inl"
 
-1507462552 h:\tncg15\globalillumination\glm\glm\detail\type_mat3x2.inl
+1507458952 h:\tncg15\globalillumination\glm\glm\detail\type_mat3x2.inl
 
-1507462554 h:\tncg15\globalillumination\glm\glm\mat3x3.hpp
+1507458954 h:\tncg15\globalillumination\glm\glm\mat3x3.hpp
 	"detail/type_mat3x3.hpp"
 
-1507462552 h:\tncg15\globalillumination\glm\glm\detail\type_mat3x3.hpp
+1507458952 h:\tncg15\globalillumination\glm\glm\detail\type_mat3x3.hpp
 	"../fwd.hpp"
 	"type_vec3.hpp"
 	"type_mat.hpp"
@@ -649,12 +649,12 @@
 	<cstddef>
 	"type_mat3x3.inl"
 
-1507462552 h:\tncg15\globalillumination\glm\glm\detail\type_mat3x3.inl
+1507458952 h:\tncg15\globalillumination\glm\glm\detail\type_mat3x3.inl
 
-1507462554 h:\tncg15\globalillumination\glm\glm\mat3x4.hpp
+1507458954 h:\tncg15\globalillumination\glm\glm\mat3x4.hpp
 	"detail/type_mat3x4.hpp"
 
-1507462552 h:\tncg15\globalillumination\glm\glm\detail\type_mat3x4.hpp
+1507458952 h:\tncg15\globalillumination\glm\glm\detail\type_mat3x4.hpp
 	"../fwd.hpp"
 	"type_vec3.hpp"
 	"type_vec4.hpp"
@@ -663,12 +663,12 @@
 	<cstddef>
 	"type_mat3x4.inl"
 
-1507462552 h:\tncg15\globalillumination\glm\glm\detail\type_mat3x4.inl
+1507458952 h:\tncg15\globalillumination\glm\glm\detail\type_mat3x4.inl
 
-1507462554 h:\tncg15\globalillumination\glm\glm\mat4x2.hpp
+1507458954 h:\tncg15\globalillumination\glm\glm\mat4x2.hpp
 	"detail/type_mat4x2.hpp"
 
-1507462552 h:\tncg15\globalillumination\glm\glm\detail\type_mat4x2.hpp
+1507458952 h:\tncg15\globalillumination\glm\glm\detail\type_mat4x2.hpp
 	"../fwd.hpp"
 	"type_vec2.hpp"
 	"type_vec4.hpp"
@@ -677,12 +677,12 @@
 	<cstddef>
 	"type_mat4x2.inl"
 
-1507462552 h:\tncg15\globalillumination\glm\glm\detail\type_mat4x2.inl
+1507458952 h:\tncg15\globalillumination\glm\glm\detail\type_mat4x2.inl
 
-1507462554 h:\tncg15\globalillumination\glm\glm\mat4x3.hpp
+1507458954 h:\tncg15\globalillumination\glm\glm\mat4x3.hpp
 	"detail/type_mat4x3.hpp"
 
-1507462552 h:\tncg15\globalillumination\glm\glm\detail\type_mat4x3.hpp
+1507458952 h:\tncg15\globalillumination\glm\glm\detail\type_mat4x3.hpp
 	"../fwd.hpp"
 	"type_vec3.hpp"
 	"type_vec4.hpp"
@@ -691,12 +691,12 @@
 	<cstddef>
 	"type_mat4x3.inl"
 
-1507462552 h:\tncg15\globalillumination\glm\glm\detail\type_mat4x3.inl
+1507458952 h:\tncg15\globalillumination\glm\glm\detail\type_mat4x3.inl
 
-1507462554 h:\tncg15\globalillumination\glm\glm\mat4x4.hpp
+1507458954 h:\tncg15\globalillumination\glm\glm\mat4x4.hpp
 	"detail/type_mat4x4.hpp"
 
-1507462552 h:\tncg15\globalillumination\glm\glm\detail\type_mat4x4.hpp
+1507458952 h:\tncg15\globalillumination\glm\glm\detail\type_mat4x4.hpp
 	"../fwd.hpp"
 	"type_vec4.hpp"
 	"type_mat.hpp"
@@ -704,28 +704,28 @@
 	<cstddef>
 	"type_mat4x4.inl"
 
-1507462552 h:\tncg15\globalillumination\glm\glm\detail\type_mat4x4.inl
+1507458952 h:\tncg15\globalillumination\glm\glm\detail\type_mat4x4.inl
 
-1507462554 h:\tncg15\globalillumination\glm\glm\trigonometric.hpp
+1507458954 h:\tncg15\globalillumination\glm\glm\trigonometric.hpp
 	"detail/func_trigonometric.hpp"
 
-1507462551 h:\tncg15\globalillumination\glm\glm\detail\func_trigonometric.hpp
+1507458951 h:\tncg15\globalillumination\glm\glm\detail\func_trigonometric.hpp
 	"setup.hpp"
 	"precision.hpp"
 	"func_trigonometric.inl"
 
-1507462551 h:\tncg15\globalillumination\glm\glm\detail\func_trigonometric.inl
+1507458951 h:\tncg15\globalillumination\glm\glm\detail\func_trigonometric.inl
 	"_vectorize.hpp"
 	<cmath>
 	<limits>
 
-1507462551 h:\tncg15\globalillumination\glm\glm\detail\_vectorize.hpp
+1507458951 h:\tncg15\globalillumination\glm\glm\detail\_vectorize.hpp
 	"type_vec1.hpp"
 	"type_vec2.hpp"
 	"type_vec3.hpp"
 	"type_vec4.hpp"
 
-1507462552 h:\tncg15\globalillumination\glm\glm\detail\type_vec1.hpp
+1507458952 h:\tncg15\globalillumination\glm\glm\detail\type_vec1.hpp
 	"../fwd.hpp"
 	"type_vec.hpp"
 	"_swizzle.hpp"
@@ -733,12 +733,12 @@
 	<cstddef>
 	"type_vec1.inl"
 
-1507462552 h:\tncg15\globalillumination\glm\glm\detail\type_vec1.inl
+1507458952 h:\tncg15\globalillumination\glm\glm\detail\type_vec1.inl
 
-1507462552 h:\tncg15\globalillumination\glm\glm\exponential.hpp
+1507458952 h:\tncg15\globalillumination\glm\glm\exponential.hpp
 	"detail/func_exponential.hpp"
 
-1507462551 h:\tncg15\globalillumination\glm\glm\detail\func_exponential.hpp
+1507458951 h:\tncg15\globalillumination\glm\glm\detail\func_exponential.hpp
 	"type_vec1.hpp"
 	"type_vec2.hpp"
 	"type_vec3.hpp"
@@ -746,32 +746,32 @@
 	<cmath>
 	"func_exponential.inl"
 
-1507462551 h:\tncg15\globalillumination\glm\glm\detail\func_exponential.inl
+1507458951 h:\tncg15\globalillumination\glm\glm\detail\func_exponential.inl
 	"func_vector_relational.hpp"
 	"_vectorize.hpp"
 	<limits>
 	<cmath>
 	<cassert>
 
-1507462551 h:\tncg15\globalillumination\glm\glm\detail\func_vector_relational.hpp
+1507458951 h:\tncg15\globalillumination\glm\glm\detail\func_vector_relational.hpp
 	"precision.hpp"
 	"setup.hpp"
 	"func_vector_relational.inl"
 
-1507462552 h:\tncg15\globalillumination\glm\glm\detail\func_vector_relational.inl
+1507458952 h:\tncg15\globalillumination\glm\glm\detail\func_vector_relational.inl
 	<limits>
 
-1507462551 h:\tncg15\globalillumination\glm\glm\common.hpp
+1507458951 h:\tncg15\globalillumination\glm\glm\common.hpp
 	"detail/func_common.hpp"
 
-1507462551 h:\tncg15\globalillumination\glm\glm\detail\func_common.hpp
+1507458951 h:\tncg15\globalillumination\glm\glm\detail\func_common.hpp
 	"setup.hpp"
 	"precision.hpp"
 	"type_int.hpp"
 	"_fixes.hpp"
 	"func_common.inl"
 
-1507462551 h:\tncg15\globalillumination\glm\glm\detail\func_common.inl
+1507458951 h:\tncg15\globalillumination\glm\glm\detail\func_common.inl
 	"func_vector_relational.hpp"
 	"type_vec2.hpp"
 	"type_vec3.hpp"
@@ -779,43 +779,43 @@
 	"_vectorize.hpp"
 	<limits>
 
-1507462554 h:\tncg15\globalillumination\glm\glm\packing.hpp
+1507458954 h:\tncg15\globalillumination\glm\glm\packing.hpp
 	"detail/func_packing.hpp"
 
-1507462551 h:\tncg15\globalillumination\glm\glm\detail\func_packing.hpp
+1507458951 h:\tncg15\globalillumination\glm\glm\detail\func_packing.hpp
 	"type_vec2.hpp"
 	"type_vec4.hpp"
 	"func_packing.inl"
 
-1507462551 h:\tncg15\globalillumination\glm\glm\detail\func_packing.inl
+1507458951 h:\tncg15\globalillumination\glm\glm\detail\func_packing.inl
 	"func_common.hpp"
 	"type_half.hpp"
 	"../fwd.hpp"
 
-1507462552 h:\tncg15\globalillumination\glm\glm\detail\type_half.hpp
+1507458952 h:\tncg15\globalillumination\glm\glm\detail\type_half.hpp
 	"setup.hpp"
 	"type_half.inl"
 
-1507462552 h:\tncg15\globalillumination\glm\glm\detail\type_half.inl
+1507458952 h:\tncg15\globalillumination\glm\glm\detail\type_half.inl
 
-1507462552 h:\tncg15\globalillumination\glm\glm\geometric.hpp
+1507458952 h:\tncg15\globalillumination\glm\glm\geometric.hpp
 	"detail/func_geometric.hpp"
 
-1507462551 h:\tncg15\globalillumination\glm\glm\detail\func_geometric.hpp
+1507458951 h:\tncg15\globalillumination\glm\glm\detail\func_geometric.hpp
 	"type_vec3.hpp"
 	"func_geometric.inl"
 
-1507462551 h:\tncg15\globalillumination\glm\glm\detail\func_geometric.inl
+1507458951 h:\tncg15\globalillumination\glm\glm\detail\func_geometric.inl
 	"func_exponential.hpp"
 	"func_common.hpp"
 	"type_vec2.hpp"
 	"type_vec4.hpp"
 	"type_float.hpp"
 
-1507462554 h:\tncg15\globalillumination\glm\glm\matrix.hpp
+1507458954 h:\tncg15\globalillumination\glm\glm\matrix.hpp
 	"detail/func_matrix.hpp"
 
-1507462551 h:\tncg15\globalillumination\glm\glm\detail\func_matrix.hpp
+1507458951 h:\tncg15\globalillumination\glm\glm\detail\func_matrix.hpp
 	"../detail/precision.hpp"
 	"../detail/setup.hpp"
 	"../detail/type_mat.hpp"
@@ -833,24 +833,24 @@
 	"../mat4x4.hpp"
 	"func_matrix.inl"
 
-1507462551 h:\tncg15\globalillumination\glm\glm\detail\func_matrix.inl
+1507458951 h:\tncg15\globalillumination\glm\glm\detail\func_matrix.inl
 	"../geometric.hpp"
 	<limits>
 
-1507462554 h:\tncg15\globalillumination\glm\glm\vector_relational.hpp
+1507458954 h:\tncg15\globalillumination\glm\glm\vector_relational.hpp
 	"detail/func_vector_relational.hpp"
 
-1507462554 h:\tncg15\globalillumination\glm\glm\integer.hpp
+1507458954 h:\tncg15\globalillumination\glm\glm\integer.hpp
 	"detail/func_integer.hpp"
 
-1507462551 h:\tncg15\globalillumination\glm\glm\detail\func_integer.hpp
+1507458951 h:\tncg15\globalillumination\glm\glm\detail\func_integer.hpp
 	"setup.hpp"
 	"precision.hpp"
 	"func_common.hpp"
 	"func_vector_relational.hpp"
 	"func_integer.inl"
 
-1507462551 h:\tncg15\globalillumination\glm\glm\detail\func_integer.inl
+1507458951 h:\tncg15\globalillumination\glm\glm\detail\func_integer.inl
 	"type_vec2.hpp"
 	"type_vec3.hpp"
 	"type_vec4.hpp"
@@ -859,52 +859,55 @@
 	<intrin.h>
 	<limits>
 
-1507636073 source:h:\tncg15\globalillumination\src\camera.cpp
+1509537533 source:h:\tncg15\globalillumination\src\camera.cpp
 	"Camera.h"
 
-1507636434 h:\tncg15\globalillumination\include\camera.h
-	"Vertex.h"
+1509537532 h:\tncg15\globalillumination\include\camera.h
 	"Pixel.h"
 	"Scene.h"
-	<Direction.h>
+	"Direction.h"
 	"../glm/glm/glm.hpp"
+	<array>
+	<vector>
 	<stdlib.h>
 	<stdio.h>
-	<math.h>
 	<iomanip>
 	<iostream>
 
-1507462555 h:\tncg15\globalillumination\include\vertex.h
+1507458955 h:\tncg15\globalillumination\include\vertex.h
 	"../glm/glm/glm.hpp"
 
-1507628666 h:\tncg15\globalillumination\include\pixel.h
+1509537532 h:\tncg15\globalillumination\include\pixel.h
 	<pixel.h>
 	<ColorDbl.h>
 	<Ray.h>
 
-1507628641 h:\tncg15\globalillumination\include\colordbl.h
+1507625041 h:\tncg15\globalillumination\include\colordbl.h
 	"../glm/glm/glm.hpp"
 
-1507462555 h:\tncg15\globalillumination\include\direction.h
+1507458955 h:\tncg15\globalillumination\include\direction.h
 	"../glm/glm/glm.hpp"
 	<Vertex.h>
 
-1507630490 source:h:\tncg15\globalillumination\src\colordbl.cpp
+1507626890 source:h:\tncg15\globalillumination\src\colordbl.cpp
 	"ColorDbl.h"
 
-1507462556 source:h:\tncg15\globalillumination\src\direction.cpp
+1507458956 source:h:\tncg15\globalillumination\src\direction.cpp
 	"Direction.h"
 
-1507627450 source:h:\tncg15\globalillumination\src\scene.cpp
+1509537533 source:h:\tncg15\globalillumination\src\scene.cpp
 	"Scene.h"
 
-1507627174 h:\tncg15\globalillumination\include\scene.h
+1509537532 h:\tncg15\globalillumination\include\scene.h
 	<vector>
 	<Triangle.h>
 	<Ray.h>
 	<Direction.h>
+	<iostream>
+	<string>
+	<iomanip>
 
-1507474108 h:\tncg15\globalillumination\include\triangle.h
+1509537532 h:\tncg15\globalillumination\include\triangle.h
 	<array>
 	<Vertex.h>
 	<Direction.h>
@@ -912,25 +915,25 @@
 	<Surface.h>
 	"../glm/glm/glm.hpp"
 
-1507462555 h:\tncg15\globalillumination\include\surface.h
+1507458955 h:\tncg15\globalillumination\include\surface.h
 	<ColorDbl.h>
 
-1507476165 h:\tncg15\globalillumination\include\ray.h
+1507472565 h:\tncg15\globalillumination\include\ray.h
 	"../glm/glm/glm.hpp"
 	<Vertex.h>
 	<ColorDbl.h>
 	<Triangle.h>
 
-1507462556 source:h:\tncg15\globalillumination\src\surface.cpp
+1507458956 source:h:\tncg15\globalillumination\src\surface.cpp
 	"Surface.h"
 
-1507462556 source:h:\tncg15\globalillumination\src\vertex.cpp
+1507458956 source:h:\tncg15\globalillumination\src\vertex.cpp
 	"Vertex.h"
 
-1507628699 source:h:\tncg15\globalillumination\src\pixel.cpp
+1509537533 source:h:\tncg15\globalillumination\src\pixel.cpp
 	"Pixel.h"
 
-1507476117 source:h:\tncg15\globalillumination\src\ray.cpp
+1507472517 source:h:\tncg15\globalillumination\src\ray.cpp
 	"Ray.h"
 
 1507823425 source:c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\src\camera.cpp
@@ -1408,7 +1411,7 @@
 1507803995 source:c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\src\triangle.cpp
 	"Triangle.h"
 
-1507474092 source:h:\tncg15\globalillumination\src\triangle.cpp
+1509537533 source:h:\tncg15\globalillumination\src\triangle.cpp
 	"Triangle.h"
 
 1507814974 source:c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\src\scene.cpp

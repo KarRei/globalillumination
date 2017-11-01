@@ -27,7 +27,7 @@ void Scene::createRoom(){
     Surface wall4(ColorDbl(glm::vec3(1.0f, 1.0f, 0.0f))); //yellow
     Surface wall5(ColorDbl(glm::vec3(1.0f, 0.0f, 1.0f))); //purple
     Surface wall6(ColorDbl(glm::vec3(1.0f, 0.6f, 0.0f))); //orange
-    Surface bottomTop(ColorDbl(glm::vec3(0.0f, 0.0f, 0.0f))); //white
+    Surface bottomTop(ColorDbl(glm::vec3(1.0f, 1.0f, 1.0f))); //white
 
     //Create Triangles 20 with normal in
     //Walls
@@ -97,7 +97,7 @@ void Scene::rayIntersection(Ray& r)
         //Passing it just passes an itterator object, it* passes the underlying object,
         //&(*it) passes the address to that underlying object
         // If true then there is an intersection!
-        if (tryIntersection(r.getDirection(), r.getStart(), *it, distance))
+        if (tryIntersection(glm::normalize(r.getDirection()), r.getStart(), *it, distance))
             temp = &(*it);
 
     }
@@ -109,43 +109,41 @@ bool Scene::tryIntersection(glm::vec3 D, glm::vec3 start, Triangle& tri, float& 
 {
     //Möller Trumbore Algorithm
     const float ZERO = 0.0000001;
-    float a, f, v, u;
     glm::vec3 e1, e2, T, P, Q;
     e1 = tri.getPoint(2) - tri.getPoint(1);
     e2 = tri.getPoint(3) - tri.getPoint(1);
 
     T = start - tri.getPoint(1);
-    P = glm::normalize(glm::cross(D, e2));
-    Q = glm::normalize(glm::cross(T, e1));
+    P = glm::cross(D, e2);
+    Q = glm::cross(T, e1);
 
-    a = glm::dot(P, e1);
+    double a = glm::dot(e1, P);
 
     // For float numbers, don't check if they are exactly the same. Check whether their difference is very small
     if (a > -ZERO && a < ZERO) {
         return false;
     }
-    f = 1/a;
-    u = f * (glm::dot(P, T));
-    v = f * (glm::dot(Q, D));
+    double f = 1.0/a;
+    double u = glm::dot(T, P) * f;
+    double v = glm::dot(D, Q) * f;
 
     //u + v < 1 && u >0 && v >0
-    if( u < 0.0 || u > 1.0)
+    if( u < 0.f || u > 1.f)
         return false;
 
-    if( v < 0.0 || u + v > 1.0)
+    if( v < 0.f || u + v > 1.f)
         return false;
 
-    float t = f * glm::dot(Q, e2);
+    double t = glm::dot(e2, Q) * f;
 
     // if the intersection point lies behind the imageplane and the distance is smaller than a previous tringle
-    if (t > 1.0 && t < d) {
-        d = t;
+    if (t > 1.f && t < d) {
+        d = (float)t;
         return true;
     }
 
     return false;
 
-    //Direction norm(glm::normalize(glm::cross(edge1, edge2)));
 }
 
 
