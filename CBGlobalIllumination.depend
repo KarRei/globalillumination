@@ -859,16 +859,17 @@
 	<intrin.h>
 	<limits>
 
-1509543193 source:h:\tncg15\globalillumination\src\camera.cpp
+1509634121 source:h:\tncg15\globalillumination\src\camera.cpp
 	"Camera.h"
 
-1509537532 h:\tncg15\globalillumination\include\camera.h
+1509615584 h:\tncg15\globalillumination\include\camera.h
 	"Pixel.h"
 	"Scene.h"
 	"Direction.h"
 	"../glm/glm/glm.hpp"
 	<array>
 	<vector>
+	<Ray.h>
 	<stdlib.h>
 	<stdio.h>
 	<iomanip>
@@ -895,10 +896,10 @@
 1507458956 source:h:\tncg15\globalillumination\src\direction.cpp
 	"Direction.h"
 
-1509550823 source:h:\tncg15\globalillumination\src\scene.cpp
+1509634308 source:h:\tncg15\globalillumination\src\scene.cpp
 	"Scene.h"
 
-1509549928 h:\tncg15\globalillumination\include\scene.h
+1509634121 h:\tncg15\globalillumination\include\scene.h
 	<vector>
 	<Triangle.h>
 	<Ray.h>
@@ -908,24 +909,24 @@
 	<string>
 	<iomanip>
 
-1509537532 h:\tncg15\globalillumination\include\triangle.h
+1509636144 h:\tncg15\globalillumination\include\triangle.h
 	<array>
 	<Vertex.h>
 	<Direction.h>
 	<ColorDbl.h>
 	<Surface.h>
+	<Ray.h>
 	"../glm/glm/glm.hpp"
 
-1507458955 h:\tncg15\globalillumination\include\surface.h
+1509635997 h:\tncg15\globalillumination\include\surface.h
 	<ColorDbl.h>
 
-1507472565 h:\tncg15\globalillumination\include\ray.h
+1509634422 h:\tncg15\globalillumination\include\ray.h
 	"../glm/glm/glm.hpp"
 	<Vertex.h>
 	<ColorDbl.h>
-	<Triangle.h>
 
-1507458956 source:h:\tncg15\globalillumination\src\surface.cpp
+1509619667 source:h:\tncg15\globalillumination\src\surface.cpp
 	"Surface.h"
 
 1507458956 source:h:\tncg15\globalillumination\src\vertex.cpp
@@ -1412,7 +1413,7 @@
 1507803995 source:c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\src\triangle.cpp
 	"Triangle.h"
 
-1509537533 source:h:\tncg15\globalillumination\src\triangle.cpp
+1509634291 source:h:\tncg15\globalillumination\src\triangle.cpp
 	"Triangle.h"
 
 1507814974 source:c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\src\scene.cpp

@@ -16,7 +16,6 @@ Camera::~Camera()
 void Camera::render(Scene& scene) { // const Scene, so we dont accidentaly change something?
     //loop through the pixels
     //set pixel color from ray
-
     for (int z =  0; z < max_val; z++) {
         for (int y = 0; y < max_val; y++) {
 
@@ -26,8 +25,8 @@ void Camera::render(Scene& scene) { // const Scene, so we dont accidentaly chang
             //crete a ray from the eye to current pixel
             Ray r(eye, imagePlanePosition);
             // Launch the ray into the scene. The function will take the reference to the ray and set it's color.
-           scene.rayIntersection(r);
-           //after rayIntersection r's color (colorDbl) has changes to the triangle color that it hits
+            scene.rayIntersection(r);
+            //after rayIntersection r's color (colorDbl) has changes to the triangle color that it hits
 
             imagePlane[y][z].setColor(r.getColor());
 
@@ -47,38 +46,37 @@ void Camera::createImage(const string filename) {
 
     for (int z = 0; z < max_val; z++) {
         for (int y = 0; y < max_val; y++) {
-                //loop through all color channels RGB and find largest intensity value i_max
-                //Extract ColorDbl of each pixel and multiply with 255.99/imax
+            //loop through all color channels RGB and find largest intensity value i_max
+            //Extract ColorDbl of each pixel and multiply with 255.99/imax
 
-                glm::vec3 RGB;
+            glm::vec3 RGB;
 
-                float i_max = imagePlane[y][z].getColor().x;
+            float i_max = imagePlane[y][z].getColor().x;
 
-                if (imagePlane[y][z].getColor().y > i_max)
-                    i_max = imagePlane[y][z].getColor().y;
+            if (imagePlane[y][z].getColor().y > i_max)
+                i_max = imagePlane[y][z].getColor().y;
 
-                if (imagePlane[y][z].getColor().z > i_max)
-                    i_max = imagePlane[y][z].getColor().z;
+            if (imagePlane[y][z].getColor().z > i_max)
+                i_max = imagePlane[y][z].getColor().z;
 
-                RGB.r = (255.99 / i_max)*(imagePlane[y][z].getColor().r);
-                RGB.g = (255.99 / i_max)*(imagePlane[y][z].getColor().g);
-                RGB.b = (255.99 / i_max)*(imagePlane[y][z].getColor().b);
+            RGB.r = (255.99 / i_max)*(imagePlane[y][z].getColor().r);
+            RGB.g = (255.99 / i_max)*(imagePlane[y][z].getColor().g);
+            RGB.b = (255.99 / i_max)*(imagePlane[y][z].getColor().b);
 
-                // OBS (int) grejerna är viktiga!
-                fprintf(fp, "%d %d %d ", (int)RGB.r, (int)RGB.g, (int)RGB.b);
+            // OBS (int) grejerna är viktiga!
+            fprintf(fp, "%d %d %d ", (int)RGB.r, (int)RGB.g, (int)RGB.b);
 
-                //Special case: Bright spots
-                /*if we have bright spots in the scene, a linear scale would yield a dark room.
-                Inthis case we  rst extract theColorDbl's from the pixels, take the square root
-                ofthe red, green and blue values and write the result into an intermediateColorDblarray.
-                Then we convert them into the RGB array as speci ed in theaforementioned method.*/
-                /*
-                if () {
-                    RGB.r = sqrt((?), 2.0);
-                    RGB.g = sqrt((255.99 / i_max)*(imagePlane[y][z].getColor().g), 2.0);
-                    RGB.b = sqrt((255.99 / i_max)*(imagePlane[y][z].getColor().b), 2.0);
-                }*/
-
+            //Special case: Bright spots
+            /*if we have bright spots in the scene, a linear scale would yield a dark room.
+            Inthis case we  rst extract theColorDbl's from the pixels, take the square root
+            ofthe red, green and blue values and write the result into an intermediateColorDblarray.
+            Then we convert them into the RGB array as speci ed in theaforementioned method.*/
+            /*
+            if () {
+                RGB.r = sqrt((?), 2.0);
+                RGB.g = sqrt((255.99 / i_max)*(imagePlane[y][z].getColor().g), 2.0);
+                RGB.b = sqrt((255.99 / i_max)*(imagePlane[y][z].getColor().b), 2.0);
+            }*/
         }
     }
 

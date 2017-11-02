@@ -5,7 +5,7 @@
 
 #include <Vertex.h>
 #include <ColorDbl.h>
-#include <Triangle.h>
+
 
 class Ray
 {
@@ -24,8 +24,7 @@ class Ray
     private:
         glm::vec3 rayStart, rayPoint;
         ColorDbl color;
-        //reference to triange (the triangle that the ray hits, if any)
-        //Triangle& refTri;
+
 };
 
 #endif // RAY_H

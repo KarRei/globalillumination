@@ -11,6 +11,8 @@ Scene::Scene()
 }*/
 
 void Scene::createRoom(){
+    float lambertian = 0.0;
+    float specular = 1.0;
 
     //Defining points in room
     glm::vec3 aTop(13.0f, 0.0f, 5.0f), aBottom(13.0f, 0.0f, -5.0f);
@@ -21,13 +23,13 @@ void Scene::createRoom(){
     glm::vec3 fTop(-3.0f, 0.0f, 5.0f), fBottom(-3.0f, 0.0f, -5.0f);
 
     //Create surfaces
-    Surface wall1(ColorDbl(glm::vec3(1.0f, 0.0f, 0.0f))); //red
-    Surface wall2(ColorDbl(glm::vec3(0.0f, 0.0f, 1.0f))); //blue
-    Surface wall3(ColorDbl(glm::vec3(0.0f, 1.0f, 0.0f))); //green
-    Surface wall4(ColorDbl(glm::vec3(1.0f, 1.0f, 0.0f))); //yellow
-    Surface wall5(ColorDbl(glm::vec3(1.0f, 0.0f, 1.0f))); //purple
-    Surface wall6(ColorDbl(glm::vec3(1.0f, 0.6f, 0.0f))); //orange
-    Surface bottomTop(ColorDbl(glm::vec3(1.0f, 1.0f, 1.0f))); //white
+    Surface wall1(ColorDbl(glm::vec3(1.0f, 0.0f, 0.0f)), lambertian); //red
+    Surface wall2(ColorDbl(glm::vec3(0.0f, 0.0f, 1.0f)), lambertian); //blue
+    Surface wall3(ColorDbl(glm::vec3(0.0f, 1.0f, 0.0f)), lambertian); //green
+    Surface wall4(ColorDbl(glm::vec3(1.0f, 1.0f, 0.0f)), lambertian); //yellow
+    Surface wall5(ColorDbl(glm::vec3(1.0f, 0.0f, 1.0f)), lambertian); //purple
+    Surface wall6(ColorDbl(glm::vec3(1.0f, 0.6f, 0.0f)), lambertian); //orange
+    Surface bottomTop(ColorDbl(glm::vec3(1.0f, 1.0f, 1.0f)), lambertian); //white
 
     //Create Triangles 20 with normal in
     //Walls
@@ -84,7 +86,7 @@ void Scene::createRoom(){
     glm::vec3 tetra3(10.0f, 0.0f, -1.0f);
     glm::vec3 tetra4(12.0f, 3.0f, -1.0f);
 
-    Surface tetra_col(ColorDbl(glm::vec3(0.0f, 1.0f, 1.0f))); //turquose
+    Surface tetra_col(ColorDbl(glm::vec3(0.0f, 1.0f, 1.0f)), specular); //turquose
 
     Triangle tetra_tri1(tetra1, tetra2, tetra3, tetra_col);
     Triangle tetra_tri2(tetra1, tetra3, tetra4, tetra_col);
@@ -98,9 +100,9 @@ void Scene::createRoom(){
 
 
     //Defining points of Sphere
-    Surface sphere_color(ColorDbl(glm::vec3(1.0f, 0.01f, 0.5f))); //pink
+    Surface sphere_color(ColorDbl(glm::vec3(1.0f, 0.01f, 0.5f)), specular); //pink
 
-    Sphere s1(glm::vec3 (8.0f, -3.0f, 0.0f), 1.0f, sphere_color );
+    Sphere s1(glm::vec3 (11.0f, -3.0f, 0.0f), 1.0f, sphere_color );
 
     spheres.push_back(s1);
 
@@ -140,15 +142,35 @@ void Scene::rayIntersection(Ray& r)
         {
             temp_sp = &(*it);
             sphere_intersection = true;
-            cout << "sphere true" << endl;
         }
     }
 
-    if (sphere_intersection)
+    if (sphere_intersection){
+        // check if temp is specular or diffuse
+        // if diffuse -> set color to the pixel
+        // if specular -> call this method again
+
         r.setColor(temp_sp->getColor());
 
-    else
-        r.setColor(temp->getColor());
+    }
+    //ENDED HERE
+    //intersection with triangle
+    else {
+        float model = temp->getBRDF();
+
+        //if ^ is specular -> getReflectedRay(r)
+        if (model == 1.0f)
+        {
+            Ray rr = temp->getReflectedRay(r);
+            rayIntersection(rr);
+
+        }
+        else // if diffuse -> set color to the pixel
+        {
+            r.setColor(temp->getColor());
+        }
+    }
+
 }
 
 
@@ -158,22 +180,38 @@ bool Scene::tryIntersectionSphere(glm::vec3 direction, glm::vec3 start, Sphere& 
     float radius = sph.getRadius();
     glm::vec3 center = sph.getPosition();
 
-    float a = 1.0f;
-    float b = glm::dot((glm::vec3(2.0, 2.0, 2.0)*direction),(start - sph.getPosition()));
-    float c = glm::dot( (start - sph.getPosition()) , (start - sph.getPosition()) ) - pow(radius, 2.0);
+    float b = glm::dot(2.0f * direction , start - center );
+    float c = glm::dot( start - center , start - center ) - glm::pow(radius, 2);
 
-    float d = -(b / 2.0) + sqrt(pow( (b / 2.0), 2.0) - a*c);
+    float d1 = -(b / 2.0f) + glm::sqrt(glm::pow( (b / 2.0), 2) - c);
+    float d2 = -(b / 2.0f) - glm::sqrt(glm::pow( (b / 2.0), 2) - c);
 
-    glm::vec3 x = start + (d * sph.getPosition());
+    glm::vec3 x;
 
-    float difference = pow(radius, 2.0) - pow(glm::length(x - sph.getPosition()), 2.0);
+    if((glm::pow( (b / 2.0), 2) - c) < ZERO)
+       return false;
 
-    //Ended here, problem difference = nan
-    cout << "diff: " << difference << endl;
+    //Sphere behind camera
+    if (d1 <= 0 && d2 <= 0) {
+        return false;
+    }
 
-    if (difference > -ZERO && difference < ZERO)
-    {
-        distance = d;
+    else if (d1 < d2) {
+        x = start + d1*direction;
+        distance = glm::distance(start, x );
+        return true;
+    }
+
+    else if (d2 < d1) {
+        x = start + d2*direction;
+        distance = glm::distance(start, x );
+        return true;
+    }
+
+    //camera inside the sphere
+    else {
+        x = start + d2*direction;
+        distance = glm::distance(start, x );
         return true;
     }
 

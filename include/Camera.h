@@ -8,6 +8,7 @@
 #include "../glm/glm/glm.hpp"
 #include <array>
 #include <vector>
+#include <Ray.h>
 
 //Se vilka vi behöver!!
 #include <stdlib.h>

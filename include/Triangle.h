@@ -6,6 +6,7 @@
 #include <Direction.h>
 #include <ColorDbl.h>
 #include <Surface.h>
+#include <Ray.h>
 #include "../glm/glm/glm.hpp"
 
 using namespace std;
@@ -19,9 +20,12 @@ class Triangle
 
         glm::vec3 getPoint(int p);
 
-        Direction getNormal();
+        glm::vec3 getNormal();
 
         ColorDbl getColor();
+        float getBRDF();
+
+        Ray getReflectedRay(Ray &r);
 
     protected:
 
@@ -29,9 +33,8 @@ class Triangle
         glm::vec3 pointPos1;
         glm::vec3 pointPos2;
         glm::vec3 pointPos3;
-        //Surface surface;
-        Direction normal;
-        ColorDbl color;
+        glm::vec3 normal;
+        Surface surface;
 };
 
 #endif // TRIANGLE_H

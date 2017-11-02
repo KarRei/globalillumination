@@ -9,7 +9,7 @@ Triangle::Triangle(glm::vec3 a, glm::vec3 b, glm::vec3 c, Surface s) // should i
     pointPos2 = b;
     pointPos3 = c;
 
-    color = s.getColor();
+    surface = s;
 
     //calculate the normal
     normal = getNormal();
@@ -20,13 +20,12 @@ Triangle::~Triangle()
     //dtor
 }
 
-Direction Triangle::getNormal()
+glm::vec3 Triangle::getNormal()
 {
     glm::vec3 edge1 = pointPos2 - pointPos1;
     glm::vec3 edge2 = pointPos3 - pointPos1;
 
-    Direction norm(glm::normalize(glm::cross(edge1, edge2)));
-    return norm;
+    return (glm::normalize(glm::cross(edge1, edge2)));
 }
 
 glm::vec3 Triangle::getPoint(int p)
@@ -43,7 +42,19 @@ glm::vec3 Triangle::getPoint(int p)
 
 ColorDbl Triangle::getColor()
 {
-    return color;
+    return surface.getColor();
+}
+
+float Triangle::getBRDF()
+{
+    return surface.getBRDF();
+}
+
+Ray Triangle::getReflectedRay( Ray &r )
+{
+    Ray temp(r.getDirection(), r.getDirection() - (2.f * glm::dot(r.getDirection(), normal) * normal));
+
+    return temp;
 }
 
 

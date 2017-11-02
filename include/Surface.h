@@ -7,15 +7,18 @@ class Surface
 {
     public:
         Surface();
-        Surface(ColorDbl);
+        Surface(ColorDbl c, float brdf);
         virtual ~Surface();
 
         ColorDbl getColor ();
+        float getBRDF();
 
     protected:
 
     private:
         ColorDbl color;
+        float BRDF;
+
         //lambertian
         //specular
 };
