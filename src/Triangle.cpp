@@ -52,8 +52,7 @@ float Triangle::getBRDF()
 
 Ray Triangle::getReflectedRay( Ray &r )
 {
-    Ray temp(r.getDirection(), r.getDirection() - (2.f * glm::dot(r.getDirection(), normal) * normal));
-
+    Ray temp(r.getDirection(), glm::reflect(r.getDirection(), normal));
     return temp;
 }
 

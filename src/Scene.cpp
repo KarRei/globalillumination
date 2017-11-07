@@ -81,10 +81,10 @@ void Scene::createRoom(){
     //Objects
 
     //Defining points of Tetrahedron (consists of 4 triangles)
-    glm::vec3 tetra1(11.0f, 4.0f, 3.0f);
-    glm::vec3 tetra2(10.0f, 5.0f, -1.0f);
-    glm::vec3 tetra3(10.0f, 0.0f, -1.0f);
-    glm::vec3 tetra4(12.0f, 3.0f, -1.0f);
+    glm::vec3 tetra1(5.0f, 4.0f, 3.0f);
+    glm::vec3 tetra2(7.0f, 5.0f, -1.0f);
+    glm::vec3 tetra3(7.0f, 0.0f, -1.0f);
+    glm::vec3 tetra4(9.0f, 3.0f, -3.0f);
 
     Surface tetra_col(ColorDbl(glm::vec3(0.0f, 1.0f, 1.0f)), specular); //turquose
 
@@ -98,6 +98,14 @@ void Scene::createRoom(){
     triangles.push_back(tetra_tri3);
     triangles.push_back(tetra_tri4);
 
+    //TEST
+    /*glm::vec3 t1(10.0f, 0.0f, -1.0f);
+    glm::vec3 t2(8.0f, 4.0f, -1.0f);
+    glm::vec3 t3(9.0f, 2.0f, 1.0f);
+
+    Triangle triangel_test(t1, t3, t2, tetra_col);
+
+    triangles.push_back(triangel_test); */
 
     //Defining points of Sphere
     Surface sphere_color(ColorDbl(glm::vec3(1.0f, 0.01f, 0.5f)), specular); //pink
@@ -112,10 +120,15 @@ void Scene::createRoom(){
 
 
 }
-
-void Scene::rayIntersection(Ray& r)
+Ray Scene::getLastRay()
 {
-    //snygga till nödlösningen!!
+    return rays.back();
+}
+
+//Return jag är klar, diffus -> true
+void Scene::rayIntersection(Ray r)
+{
+    //Ray temp_ray = r;
 
     //Loop through all triangles in scene
     //Loop the current triangle
@@ -150,7 +163,22 @@ void Scene::rayIntersection(Ray& r)
         // if diffuse -> set color to the pixel
         // if specular -> call this method again
 
+        //r.setColor(temp_sp->getColor());
+        //rays.push_back(r);
+         //temp_sp->getColor();
+
+        float model = temp_sp->getBRDF();
+
+        //if ^ is specular -> getReflectedRay(r)
         r.setColor(temp_sp->getColor());
+        rays.push_back(r);
+        if (model == 1.0f)
+        {
+            //Ray rr = temp->getReflectedRay(r);
+            Ray rr = temp_sp->getReflectedRay(r);
+            rayIntersection(rr);
+
+        }
 
     }
     //ENDED HERE
@@ -159,15 +187,15 @@ void Scene::rayIntersection(Ray& r)
         float model = temp->getBRDF();
 
         //if ^ is specular -> getReflectedRay(r)
+        r.setColor(temp->getColor());
+        rays.push_back(r);
+
         if (model == 1.0f)
         {
+            //Ray rr = temp->getReflectedRay(r);
             Ray rr = temp->getReflectedRay(r);
             rayIntersection(rr);
 
-        }
-        else // if diffuse -> set color to the pixel
-        {
-            r.setColor(temp->getColor());
         }
     }
 

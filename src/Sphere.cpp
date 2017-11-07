@@ -4,7 +4,7 @@ Sphere::Sphere(glm::vec3 pos, float rad, Surface s )
 {
         position = pos;
         radius = rad;
-        color = s.getColor();
+        surface = s;
 }
 
 Sphere::~Sphere()
@@ -12,9 +12,14 @@ Sphere::~Sphere()
     //dtor
 }
 
+float Sphere::getBRDF()
+{
+    return surface.getBRDF();
+}
+
 ColorDbl Sphere::getColor()
 {
-    return color;
+    return surface.getColor();
 }
 
 float Sphere::getRadius()
@@ -27,9 +32,10 @@ glm::vec3 Sphere::getPosition()
     return position;
 }
 
-/*
-glm::vec3 Sphere::getNormal ()
+Ray Sphere::getReflectedRay( Ray &r )
 {
-    return color;
-}*/
+    glm::vec3 normal = position - r.getDirection();
+    Ray temp(r.getDirection(), glm::reflect(r.getDirection(), normal));
+    return temp;
+}
 

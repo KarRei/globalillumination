@@ -3,6 +3,7 @@
 
 #include <Surface.h>
 #include <ColorDbl.h>
+#include <Ray.h>
 
 class Sphere
 {
@@ -13,13 +14,15 @@ class Sphere
         ColorDbl getColor();
         float getRadius();
         glm::vec3 getPosition();
+        float getBRDF();
+        Ray getReflectedRay(Ray &r);
 
     protected:
 
     private:
         glm::vec3 position;
         float radius;
-        ColorDbl color;
+        Surface surface;
 };
 
 #endif // SPHERE_H

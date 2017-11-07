@@ -2,7 +2,7 @@
 
 Camera::Camera()
 {
-    eye = glm::vec3(-2.0f, 0.0f, 0.0f);
+    eye = glm::vec3(-1.0f, 0.0f, 0.0f);
     for (int i = 0; i < 1000; i++)
         imagePlane[i] = new Pixel[1000];
 }
@@ -26,9 +26,10 @@ void Camera::render(Scene& scene) { // const Scene, so we dont accidentaly chang
             Ray r(eye, imagePlanePosition);
             // Launch the ray into the scene. The function will take the reference to the ray and set it's color.
             scene.rayIntersection(r);
+            Ray lastRay = scene.getLastRay();
             //after rayIntersection r's color (colorDbl) has changes to the triangle color that it hits
 
-            imagePlane[y][z].setColor(r.getColor());
+            imagePlane[y][z].setColor(lastRay.getColor());
 
         }
     }
