@@ -64,7 +64,7 @@ void Camera::createImage(const string filename) {
             RGB.b = (255.99 / i_max)*(imagePlane[y][z].getColor().b);
 
             // OBS (int) grejerna är viktiga!
-            fprintf(fp, "%d %d %d", (int)RGB.r, (int)RGB.g, (int)RGB.b);
+            fprintf(fp, "%d %d %d ", (int)RGB.r, (int)RGB.g, (int)RGB.b);
 
             //Special case: Bright spots
             /*if we have bright spots in the scene, a linear scale would yield a dark room.
