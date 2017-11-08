@@ -19,7 +19,7 @@ class Scene
         //virtual ~Scene();
         void createRoom();
 
-        Ray getLastRay();
+        Ray getRadiance();
         void rayIntersection(Ray r);
         bool tryIntersectionTriangle(glm::vec3 D, glm::vec3 start, Triangle& t, float& d);
         bool tryIntersectionSphere(glm::vec3 direction, glm::vec3 start, Sphere& sph, float& distance);

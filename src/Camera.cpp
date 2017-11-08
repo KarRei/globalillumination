@@ -26,11 +26,10 @@ void Camera::render(Scene& scene) { // const Scene, so we dont accidentaly chang
             Ray r(eye, imagePlanePosition);
             // Launch the ray into the scene. The function will take the reference to the ray and set it's color.
             scene.rayIntersection(r);
-            Ray lastRay = scene.getLastRay();
+            Ray lastRay = scene.getRadiance();
             //after rayIntersection r's color (colorDbl) has changes to the triangle color that it hits
 
             imagePlane[y][z].setColor(lastRay.getColor());
-
         }
     }
 
@@ -65,7 +64,7 @@ void Camera::createImage(const string filename) {
             RGB.b = (255.99 / i_max)*(imagePlane[y][z].getColor().b);
 
             // OBS (int) grejerna är viktiga!
-            fprintf(fp, "%d %d %d ", (int)RGB.r, (int)RGB.g, (int)RGB.b);
+            fprintf(fp, "%d %d %d", (int)RGB.r, (int)RGB.g, (int)RGB.b);
 
             //Special case: Bright spots
             /*if we have bright spots in the scene, a linear scale would yield a dark room.

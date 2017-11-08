@@ -18,6 +18,7 @@ class Surface
     private:
         ColorDbl color;
         float BRDF;
+        //glm::vec3 emission;
 
         //lambertian
         //specular

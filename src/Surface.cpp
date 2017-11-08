@@ -9,6 +9,7 @@ Surface::Surface(ColorDbl c, float brdf)
 {
     color = c;
     BRDF = brdf;
+    //emission = e;
 }
 
 //destructor

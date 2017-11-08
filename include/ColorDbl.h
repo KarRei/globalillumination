@@ -12,6 +12,13 @@ class ColorDbl
 
         glm::vec3 getColorVec();
 
+        ColorDbl operator*(const float& f)
+        {
+            ColorDbl c;
+            c.color = this->color * f;
+            return c;
+        }
+
     protected:
 
     private:

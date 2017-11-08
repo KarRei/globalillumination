@@ -18,12 +18,16 @@ class Ray
         glm::vec3 getDirection();
         void setColor(ColorDbl c);
         ColorDbl getColor();
+        void setImportance(float i);
+        float getImportance();
 
     protected:
 
     private:
         glm::vec3 rayStart, rayPoint;
         ColorDbl color;
+        float importance;
+        //float alpha;
 
 };
 

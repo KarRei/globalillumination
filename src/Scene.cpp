@@ -13,7 +13,9 @@ Scene::Scene()
 void Scene::createRoom(){
     float lambertian = 0.0;
     float specular = 1.0;
+    float light = 0.0;
 
+    //ROOM
     //Defining points in room
     glm::vec3 aTop(13.0f, 0.0f, 5.0f), aBottom(13.0f, 0.0f, -5.0f);
     glm::vec3 bTop(10.0f, 6.0f, 5.0f), bBottom(10.0f, 6.0f, -5.0f);
@@ -78,8 +80,7 @@ void Scene::createRoom(){
     triangles.push_back(tr_c);
     triangles.push_back(tr_d);
 
-    //Objects
-
+    //OBJECTS
     //Defining points of Tetrahedron (consists of 4 triangles)
     glm::vec3 tetra1(5.0f, 4.0f, 3.0f);
     glm::vec3 tetra2(7.0f, 5.0f, -1.0f);
@@ -98,31 +99,48 @@ void Scene::createRoom(){
     triangles.push_back(tetra_tri3);
     triangles.push_back(tetra_tri4);
 
-    //TEST
-    /*glm::vec3 t1(10.0f, 0.0f, -1.0f);
-    glm::vec3 t2(8.0f, 4.0f, -1.0f);
-    glm::vec3 t3(9.0f, 2.0f, 1.0f);
-
-    Triangle triangel_test(t1, t3, t2, tetra_col);
-
-    triangles.push_back(triangel_test); */
 
     //Defining points of Sphere
     Surface sphere_color(ColorDbl(glm::vec3(1.0f, 0.01f, 0.5f)), specular); //pink
-
     Sphere s1(glm::vec3 (11.0f, -3.0f, 0.0f), 1.0f, sphere_color );
-
     spheres.push_back(s1);
 
+    //LIGHT
 
+    glm::vec3 light1(4.0f, 1.0f, 4.99f);
+    glm::vec3 light2(4.0f, -1.0f, 4.99f);
+    glm::vec3 light3(6.0f, -1.0f, 4.99f);
+    glm::vec3 light4(6.0f, 1.0f, 4.99f);
 
-    //Light
+    //white light
+    Surface surface_light(ColorDbl(glm::vec3(1.0f, 1.0f, 0.0f)), light); //white
 
+    Triangle t_light1(light1, light3, light4, surface_light);
+    Triangle t_light2(light1, light2, light3, surface_light);
 
+    triangles.push_back(t_light1);
+    triangles.push_back(t_light2);
 }
-Ray Scene::getLastRay()
+
+Ray Scene::getRadiance()
 {
-    return rays.back();
+    //float radiance = 1;
+    /*
+    for(vector<Ray>::iterator it = rays.end(); it != rays.begin(); it--)
+    {
+        it.
+
+    }*/
+
+    Ray temp = rays.back();
+
+    float radiance = temp.getImportance();
+    //temp.setColor(ColorDbl(temp.getColor().getColorVec() * radiance));
+
+    //delete list, check if correct
+    rays.clear();
+
+    return temp;
 }
 
 //Return jag är klar, diffus -> true
