@@ -54,7 +54,9 @@ Ray Triangle::getReflectedRay( Ray &r )
 {
     Ray temp(r.getDirection(), glm::reflect(r.getDirection(), normal));
     //set importance
-    //temp.setImportance(surface.getBRDF() * r.getImportance());
+    temp.setImportance(surface.getBRDF() * r.getImportance());
+
+
     return temp;
 }
 

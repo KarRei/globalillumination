@@ -8,6 +8,7 @@
 #include <Surface.h>
 #include <Ray.h>
 #include "../glm/glm/glm.hpp"
+#include <iostream>
 
 using namespace std;
 

@@ -11,9 +11,9 @@ Scene::Scene()
 }*/
 
 void Scene::createRoom(){
-    float lambertian = 0.0;
-    float specular = 1.0;
-    float light = 0.0;
+    float lambertian = 0.2f;
+    float specular = 1.0f;
+    float light = 0.0f;
 
     //ROOM
     //Defining points in room
@@ -129,22 +129,28 @@ Ray Scene::getRadiance()
     for(vector<Ray>::iterator it = rays.end(); it != rays.begin(); it--)
     {
         it.
-
     }*/
 
     Ray temp = rays.back();
+   // cout << "impo " << temp.getImportance() << endl;
+    //If ray hits light source
+    if(temp.getImportance() > 0.00000001f)
+    {
+        float radiance = temp.getImportance();
+        temp.setColor(temp.getColor() * radiance);
+    }
 
-    float radiance = temp.getImportance();
-    //temp.setColor(ColorDbl(temp.getColor().getColorVec() * radiance));
+    else
+        temp.setColor(ColorDbl(glm::vec3(0.0f, 0.0f, 0.0f)));
 
-    //delete list, check if correct
+    //delete list, obs check if correct
     rays.clear();
 
     return temp;
 }
 
 //Return jag är klar, diffus -> true
-void Scene::rayIntersection(Ray r)
+void Scene::rayIntersection(Ray &r)
 {
     //Ray temp_ray = r;
 
@@ -183,23 +189,21 @@ void Scene::rayIntersection(Ray r)
 
         //r.setColor(temp_sp->getColor());
         //rays.push_back(r);
-         //temp_sp->getColor();
+        //temp_sp->getColor();
 
         float model = temp_sp->getBRDF();
 
         //if ^ is specular -> getReflectedRay(r)
         r.setColor(temp_sp->getColor());
         rays.push_back(r);
-        if (model == 1.0f)
+        if (model > 0.0f && r.getImportance() > 0.0000001f)
         {
             //Ray rr = temp->getReflectedRay(r);
             Ray rr = temp_sp->getReflectedRay(r);
             rayIntersection(rr);
-
         }
-
     }
-    //ENDED HERE
+
     //intersection with triangle
     else {
         float model = temp->getBRDF();
@@ -208,13 +212,15 @@ void Scene::rayIntersection(Ray r)
         r.setColor(temp->getColor());
         rays.push_back(r);
 
-        if (model == 1.0f)
+        if (model > 0.0f && r.getImportance() > 0.0000001f)
         {
             //Ray rr = temp->getReflectedRay(r);
             Ray rr = temp->getReflectedRay(r);
             rayIntersection(rr);
-
         }
+
+        //else, hits light source, stops
+        //if (model == 0.0
     }
 
 }
@@ -302,7 +308,6 @@ bool Scene::tryIntersectionTriangle(glm::vec3 D, glm::vec3 start, Triangle& tri,
     }
 
     return false;
-
 }
 
 
