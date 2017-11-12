@@ -15,16 +15,15 @@ class Surface
         virtual ~Surface();
 
         ColorDbl getColor ();
+        glm::vec3 getIntensity();
         int getModel();
 
     protected:
 
     private:
         ColorDbl color;
-        //float BRDF;
         int model;
-
-        //glm::vec3 emission;
+        glm::vec3 intensity;
 
         //lambertian
         //specular

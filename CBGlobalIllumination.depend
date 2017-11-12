@@ -895,10 +895,10 @@
 1507458956 source:h:\tncg15\globalillumination\src\direction.cpp
 	"Direction.h"
 
-1510493669 source:h:\tncg15\globalillumination\src\scene.cpp
+1510499606 source:h:\tncg15\globalillumination\src\scene.cpp
 	"Scene.h"
 
-1510494014 h:\tncg15\globalillumination\include\scene.h
+1510503035 h:\tncg15\globalillumination\include\scene.h
 	<vector>
 	<Triangle.h>
 	<Ray.h>
@@ -909,7 +909,7 @@
 	<string>
 	<iomanip>
 
-1510481643 h:\tncg15\globalillumination\include\triangle.h
+1510499583 h:\tncg15\globalillumination\include\triangle.h
 	<array>
 	<Vertex.h>
 	<Direction.h>
@@ -917,9 +917,12 @@
 	<Surface.h>
 	<Ray.h>
 	"../glm/glm/glm.hpp"
+	<../glm/glm/gtx/rotate_vector.hpp>
 	<iostream>
+	<stdlib.h>
+	<math.h>
 
-1510493671 h:\tncg15\globalillumination\include\surface.h
+1510504290 h:\tncg15\globalillumination\include\surface.h
 	<ColorDbl.h>
 
 1510149018 h:\tncg15\globalillumination\include\ray.h
@@ -927,7 +930,7 @@
 	<Vertex.h>
 	<ColorDbl.h>
 
-1510481527 source:h:\tncg15\globalillumination\src\surface.cpp
+1510504283 source:h:\tncg15\globalillumination\src\surface.cpp
 	"Surface.h"
 
 1507458956 source:h:\tncg15\globalillumination\src\vertex.cpp
@@ -1414,27 +1417,28 @@
 1507803995 source:c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\src\triangle.cpp
 	"Triangle.h"
 
-1510482227 source:h:\tncg15\globalillumination\src\triangle.cpp
+1510499570 source:h:\tncg15\globalillumination\src\triangle.cpp
 	"Triangle.h"
 
 1507814974 source:c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\src\scene.cpp
 	"Scene.h"
 
-1510492489 h:\tncg15\globalillumination\include\sphere.h
+1510499690 h:\tncg15\globalillumination\include\sphere.h
 	<Surface.h>
 	<ColorDbl.h>
 	<Ray.h>
 
-1510492553 source:h:\tncg15\globalillumination\src\sphere.cpp
+1510499691 source:h:\tncg15\globalillumination\src\sphere.cpp
 	"Sphere.h"
 
-1510392552 h:\tncg15\globalillumination\include\light.h
+1510502575 h:\tncg15\globalillumination\include\light.h
+	<Surface.h>
 	"../glm/glm/glm.hpp"
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
 
-1510392919 source:h:\tncg15\globalillumination\src\light.cpp
+1510504241 source:h:\tncg15\globalillumination\src\light.cpp
 	"Light.h"
 
 1507458953 h:\tncg15\globalillumination\glm\glm\gtx\string_cast.hpp
@@ -1512,4 +1516,31 @@
 	"component_wise.inl"
 
 1507458953 h:\tncg15\globalillumination\glm\glm\gtx\component_wise.inl
+
+1507458953 h:\tncg15\globalillumination\glm\glm\gtx\rotate_vector.hpp
+	"../glm.hpp"
+	"../gtx/transform.hpp"
+	"rotate_vector.inl"
+
+1507458953 h:\tncg15\globalillumination\glm\glm\gtx\transform.hpp
+	"../glm.hpp"
+	"../gtc/matrix_transform.hpp"
+	"transform.inl"
+
+1507458952 h:\tncg15\globalillumination\glm\glm\gtc\matrix_transform.hpp
+	"../mat4x4.hpp"
+	"../vec2.hpp"
+	"../vec3.hpp"
+	"../vec4.hpp"
+	"../gtc/constants.hpp"
+	"matrix_transform.inl"
+
+1507458952 h:\tncg15\globalillumination\glm\glm\gtc\matrix_transform.inl
+	"../geometric.hpp"
+	"../trigonometric.hpp"
+	"../matrix.hpp"
+
+1507458953 h:\tncg15\globalillumination\glm\glm\gtx\transform.inl
+
+1507458953 h:\tncg15\globalillumination\glm\glm\gtx\rotate_vector.inl
 

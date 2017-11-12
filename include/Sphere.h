@@ -16,7 +16,7 @@ class Sphere
         ColorDbl getColor();
         float getRadius();
         glm::vec3 getPosition();
-        Ray getReflectedRay(Ray &r);
+        Ray getReflectedRay(Ray &r, glm::vec3 hit_point);
         glm::vec3 getNormal(glm::vec3 hit_point);
 
     protected:

@@ -36,6 +36,7 @@
 		<Unit filename="include/Camera.h" />
 		<Unit filename="include/ColorDbl.h" />
 		<Unit filename="include/Direction.h" />
+		<Unit filename="include/Light.h" />
 		<Unit filename="include/Pixel.h" />
 		<Unit filename="include/Ray.h" />
 		<Unit filename="include/Scene.h" />
@@ -47,6 +48,7 @@
 		<Unit filename="src/Camera.cpp" />
 		<Unit filename="src/ColorDbl.cpp" />
 		<Unit filename="src/Direction.cpp" />
+		<Unit filename="src/Light.cpp" />
 		<Unit filename="src/Pixel.cpp" />
 		<Unit filename="src/Ray.cpp" />
 		<Unit filename="src/Scene.cpp" />

@@ -1,4 +1,5 @@
 #include "Triangle.h"
+#define M_PI
 
 Triangle::Triangle()
 {}
@@ -50,21 +51,55 @@ Surface Triangle::getSurface()
     return surface;
 }
 
-Ray Triangle::getReflectedRay( Ray &r )
+Ray Triangle::getReflectedRay( Ray &r, glm::vec3 hit_point )
 {
+    Ray temp;
     //Reflection for specular
-    Ray temp(r.getDirection(), glm::reflect(r.getDirection(), normal));
+    if (surface.getModel() == 1)
+        temp = Ray(hit_point, glm::reflect(r.getDirection(), normal));
 
+    //Reflection for lambertian
+    else if (surface.getModel() == 0)
+    {
+        float random1 = (float) rand();
+        float random2 = (float) rand();
 
-    //Reflection for Lambertian surfaces
+        float angle1 = acos(sqrt(random1));
+        float angle2 = 2.f * 3.14 * random2;
 
+        //You can find tangent by calculating the cross-product of the normal and an arbitrary vector that isn't parallel to the normal
+        glm::vec3 tangent = glm::normalize(glm::cross(normal, normal + glm::vec3(1.f)));
 
+        glm::vec3 new_direction = normal;
 
+        new_direction = glm::normalize(glm::rotate(new_direction, angle1, tangent));
+        new_direction = glm::normalize(glm::rotate(new_direction, angle2, normal));
 
-    //set importance
-    //temp.setImportance(surface.getBRDF() * r.getImportance());
+        temp = Ray(hit_point, new_direction);
+
+    }
 
     return temp;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

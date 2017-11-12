@@ -6,11 +6,28 @@ Light::Light()
     p2 = glm::vec3(4.0f, -1.0f, 4.99f);
     p3 = glm::vec3(6.0f, -1.0f, 4.99f);
     p4 = glm::vec3(6.0f, 1.0f, 4.99f);
+
+    surface = Surface(ColorDbl(glm::vec3(1.0f, 1.0f, 1.0f)), 2);
 }
 
 Light::~Light()
 {
     //dtor
+}
+
+glm::vec3 Light::getNormal()
+{
+    return glm::vec3(0.0f, -1.0f, 0.0f);
+}
+
+Surface Light::getSurface()
+{
+    return surface;
+}
+
+float Light::getArea()
+{
+    return (p3.x - p1.x) * glm::abs(p3.y -p1.y);
 }
 
 glm::vec3 Light::getRandomPoint()

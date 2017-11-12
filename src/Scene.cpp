@@ -113,7 +113,7 @@ void Scene::createRoom(){
     glm::vec3 light4(6.0f, 1.0f, 4.99f);
 
     //white light
-    Surface surface_light(ColorDbl(glm::vec3(1.0f, 1.0f, 0.0f)), 2); //white
+    Surface surface_light(ColorDbl(glm::vec3(1.0f, 1.0f, 1.0f)), 2); //white
 
     Triangle t_light1(light1, light3, light4, surface_light);
     Triangle t_light2(light1, light2, light3, surface_light);
@@ -146,7 +146,7 @@ glm::vec3 Scene::rayIntersection(Ray &r, int nr_iterations)
         if(surf.getModel() == 2)
             return surf.getColor().getColorVec();
 
-        Ray reflected_ray = nearest_tri.getReflectedRay(r);
+        Ray reflected_ray = nearest_tri.getReflectedRay(r, hitPoint_tri);
 
         //calculate angle between normal and reflected_ray
         //double angle = glm::angle(glm::normalize(reflected_ray.getDirection()), nearestTri.getNormal());
@@ -170,11 +170,12 @@ glm::vec3 Scene::rayIntersection(Ray &r, int nr_iterations)
     else if (length_sph < length_tri){ //a sphere is closest
         Surface surf = nearest_sph.getSurface();
 
-        Ray reflected_ray = nearest_sph.getReflectedRay(r); //change in sphere
+        Ray reflected_ray = nearest_sph.getReflectedRay(r, hitPoint_sph); //change in sphere
 
         glm::vec3 importance = surf.getColor().getColorVec();
         glm::vec3 light_contribution = castShadowRay(r, nearest_sph.getNormal(hitPoint_sph), hitPoint_sph );
 
+        color += importance;
         color *= light_contribution;
 
         //Diffuse
@@ -224,25 +225,45 @@ Sphere Scene::firstIntersectedSphere(Ray& r, glm::vec3& hPoint)
 
 glm::vec3 Scene::castShadowRay(Ray& rayIncoming, glm::vec3 normal, glm::vec3 hitPoint)
 {
-    glm::vec3 randomPointOnLight = lightSource.getRandomPoint();
-    Ray light_ray(hitPoint, randomPointOnLight);
-    float length_light = glm::distance(randomPointOnLight, hitPoint);
+    glm::vec3 color(0.0f);
+    int lightCount = 0;
+    for (int i = 0; i < 2; ++i) {
+        ++lightCount;
+        glm::vec3 randomPointOnLight = lightSource.getRandomPoint();
 
-    glm::vec3 hitPoint_tri;
-    glm::vec3 hitPoint_sph = glm::vec3(100.f);
+        Ray light_ray(hitPoint, glm::normalize(randomPointOnLight-hitPoint));
+        float length_light = glm::distance(hitPoint, randomPointOnLight);
 
-    Triangle nearest_tri = firstIntersectedTriangle(light_ray, hitPoint_tri);
-    Sphere nearest_sphere = firstIntersectedSphere(light_ray, hitPoint_sph);
+        glm::vec3 hitPoint_tri;
+        glm::vec3 hitPoint_sph = glm::vec3(100.f);
 
-    //check if triangle or sphere is closest, we know that hitPoint lies on the closest object
-    float length_tri = glm::distance(hitPoint, hitPoint_tri);
-    float length_sph = glm::distance(hitPoint, hitPoint_sph);
+        Triangle nearest_tri = firstIntersectedTriangle(light_ray, hitPoint_tri);
+        Sphere nearest_sphere = firstIntersectedSphere(light_ray, hitPoint_sph);
 
-    //shadow
-    if ( length_tri < length_light || length_sph < length_light)
-        return glm::vec3 ( 0.0f );
+        //check if triangle or sphere is closest, we know that hitPoint lies on the closest object
+        float length_tri = glm::distance(hitPoint, hitPoint_tri);
+        float length_sph = glm::distance(hitPoint, hitPoint_sph);
 
-    return glm::vec3 ( 1.0f );
+        //shadow
+        if ( length_tri < length_light || length_sph < length_light)
+            return glm::vec3 ( 0.0f );
+
+        //cout << light_ray.getDirection().x << " " << light_ray.getDirection().y << " " << light_ray.getDirection().z << endl;
+        float A = glm::dot(-normal, light_ray.getDirection());
+
+        float B = glm::clamp(glm::dot(lightSource.getNormal(), -light_ray.getDirection()), 0.0f, 1.0f);
+        //cout << B << endl;
+        float C = A * B / pow(length_light, 2.0);
+
+        Surface light_surface = lightSource.getSurface();
+        color += light_surface.getColor().getColorVec() * light_surface.getIntensity() * C;
+
+
+    }
+
+    //cout << color.x << " " << color.y << " " << color.z << endl;
+    color *= lightSource.getArea()/ (float)lightCount;
+    return color;
 }
 
 

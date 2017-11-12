@@ -8,9 +8,11 @@ Surface::Surface()
 Surface::Surface(ColorDbl c, int m)
 {
     color = c;
-    //BRDF = brdf;
     model = m;
-    //emission = e;
+    if(m == 2)
+        intensity = glm::vec3(20.0f);
+    else
+        intensity = glm::vec3(0.0f);
 }
 
 //destructor
@@ -21,6 +23,11 @@ Surface::~Surface()
 
 ColorDbl Surface::getColor () {
     return color;
+}
+
+glm::vec3 Surface::getIntensity()
+{
+    return intensity;
 }
 
 int Surface::getModel()

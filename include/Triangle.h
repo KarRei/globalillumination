@@ -8,7 +8,10 @@
 #include <Surface.h>
 #include <Ray.h>
 #include "../glm/glm/glm.hpp"
+#include <../glm/glm/gtx/rotate_vector.hpp>
 #include <iostream>
+#include <stdlib.h>
+#include <math.h>
 
 using namespace std;
 
@@ -26,7 +29,7 @@ class Triangle
         ColorDbl getColor();
         Surface getSurface();
 
-        Ray getReflectedRay(Ray &r);
+        Ray getReflectedRay(Ray &r, glm::vec3 hit_point);
 
     protected:
 

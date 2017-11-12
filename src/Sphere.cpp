@@ -42,7 +42,7 @@ glm::vec3 Sphere::getNormal(glm::vec3 hit_point)
     return glm::normalize(position - hit_point);
 }
 
-Ray Sphere::getReflectedRay( Ray &r )
+Ray Sphere::getReflectedRay( Ray &r, glm::vec3 hit_point )
 {
     glm::vec3 normal = position - r.getDirection();
     Ray temp(r.getDirection(), glm::reflect(r.getDirection(), normal));
