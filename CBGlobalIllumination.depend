@@ -461,7 +461,7 @@
 1507113566 source:h:\tncg15\cbglobalillumination\src\vertex.cpp
 	"Vertex.h"
 
-1509537533 source:h:\tncg15\globalillumination\main.cpp
+1510492694 source:h:\tncg15\globalillumination\main.cpp
 	<iostream>
 	"glm/glm/glm.hpp"
 	"Scene.h"
@@ -859,14 +859,13 @@
 	<intrin.h>
 	<limits>
 
-1510156538 source:h:\tncg15\globalillumination\src\camera.cpp
+1510493079 source:h:\tncg15\globalillumination\src\camera.cpp
 	"Camera.h"
 
-1509615584 h:\tncg15\globalillumination\include\camera.h
+1510392256 h:\tncg15\globalillumination\include\camera.h
 	"Pixel.h"
 	"Scene.h"
 	"Direction.h"
-	"../glm/glm/glm.hpp"
 	<array>
 	<vector>
 	<Ray.h>
@@ -896,20 +895,21 @@
 1507458956 source:h:\tncg15\globalillumination\src\direction.cpp
 	"Direction.h"
 
-1510223090 source:h:\tncg15\globalillumination\src\scene.cpp
+1510493669 source:h:\tncg15\globalillumination\src\scene.cpp
 	"Scene.h"
 
-1510219259 h:\tncg15\globalillumination\include\scene.h
+1510494014 h:\tncg15\globalillumination\include\scene.h
 	<vector>
 	<Triangle.h>
 	<Ray.h>
 	<Direction.h>
 	<Sphere.h>
+	<Light.h>
 	<iostream>
 	<string>
 	<iomanip>
 
-1510222762 h:\tncg15\globalillumination\include\triangle.h
+1510481643 h:\tncg15\globalillumination\include\triangle.h
 	<array>
 	<Vertex.h>
 	<Direction.h>
@@ -919,7 +919,7 @@
 	"../glm/glm/glm.hpp"
 	<iostream>
 
-1510155605 h:\tncg15\globalillumination\include\surface.h
+1510493671 h:\tncg15\globalillumination\include\surface.h
 	<ColorDbl.h>
 
 1510149018 h:\tncg15\globalillumination\include\ray.h
@@ -927,7 +927,7 @@
 	<Vertex.h>
 	<ColorDbl.h>
 
-1510155593 source:h:\tncg15\globalillumination\src\surface.cpp
+1510481527 source:h:\tncg15\globalillumination\src\surface.cpp
 	"Surface.h"
 
 1507458956 source:h:\tncg15\globalillumination\src\vertex.cpp
@@ -1414,17 +1414,102 @@
 1507803995 source:c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\src\triangle.cpp
 	"Triangle.h"
 
-1510223028 source:h:\tncg15\globalillumination\src\triangle.cpp
+1510482227 source:h:\tncg15\globalillumination\src\triangle.cpp
 	"Triangle.h"
 
 1507814974 source:c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\src\scene.cpp
 	"Scene.h"
 
-1510149297 h:\tncg15\globalillumination\include\sphere.h
+1510492489 h:\tncg15\globalillumination\include\sphere.h
 	<Surface.h>
 	<ColorDbl.h>
 	<Ray.h>
 
-1510223558 source:h:\tncg15\globalillumination\src\sphere.cpp
+1510492553 source:h:\tncg15\globalillumination\src\sphere.cpp
 	"Sphere.h"
+
+1510392552 h:\tncg15\globalillumination\include\light.h
+	"../glm/glm/glm.hpp"
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
+1510392919 source:h:\tncg15\globalillumination\src\light.cpp
+	"Light.h"
+
+1507458953 h:\tncg15\globalillumination\glm\glm\gtx\string_cast.hpp
+	"../glm.hpp"
+	"../gtc/type_precision.hpp"
+	"../gtc/quaternion.hpp"
+	"../gtx/dual_quaternion.hpp"
+	<string>
+	"string_cast.inl"
+
+1507458952 h:\tncg15\globalillumination\glm\glm\gtc\type_precision.hpp
+	"../gtc/quaternion.hpp"
+	"../gtc/vec1.hpp"
+	"../vec2.hpp"
+	"../vec3.hpp"
+	"../vec4.hpp"
+	"../mat2x2.hpp"
+	"../mat2x3.hpp"
+	"../mat2x4.hpp"
+	"../mat3x2.hpp"
+	"../mat3x3.hpp"
+	"../mat3x4.hpp"
+	"../mat4x2.hpp"
+	"../mat4x3.hpp"
+	"../mat4x4.hpp"
+	"type_precision.inl"
+
+1507458952 h:\tncg15\globalillumination\glm\glm\gtc\quaternion.hpp
+	"../mat3x3.hpp"
+	"../mat4x4.hpp"
+	"../vec3.hpp"
+	"../vec4.hpp"
+	"../gtc/constants.hpp"
+	"quaternion.inl"
+
+1507458952 h:\tncg15\globalillumination\glm\glm\gtc\constants.hpp
+	"../detail/setup.hpp"
+	"constants.inl"
+
+1507458952 h:\tncg15\globalillumination\glm\glm\gtc\constants.inl
+	<limits>
+
+1507458952 h:\tncg15\globalillumination\glm\glm\gtc\quaternion.inl
+	"../trigonometric.hpp"
+	"../geometric.hpp"
+	"../exponential.hpp"
+	<limits>
+
+1507458952 h:\tncg15\globalillumination\glm\glm\gtc\vec1.hpp
+	"../glm.hpp"
+	"../detail/type_vec1.hpp"
+	"vec1.inl"
+
+1507458952 h:\tncg15\globalillumination\glm\glm\gtc\vec1.inl
+
+1507458952 h:\tncg15\globalillumination\glm\glm\gtc\type_precision.inl
+
+1507458953 h:\tncg15\globalillumination\glm\glm\gtx\dual_quaternion.hpp
+	"../glm.hpp"
+	"../gtc/constants.hpp"
+	"../gtc/quaternion.hpp"
+	"dual_quaternion.inl"
+
+1507458953 h:\tncg15\globalillumination\glm\glm\gtx\dual_quaternion.inl
+	"../geometric.hpp"
+	<limits>
+
+1507458953 h:\tncg15\globalillumination\glm\glm\gtx\string_cast.inl
+	<cstdarg>
+	<cstdio>
+
+1507458953 h:\tncg15\globalillumination\glm\glm\gtx\component_wise.hpp
+	"../detail/setup.hpp"
+	"../detail/precision.hpp"
+	"component_wise.inl"
+
+1507458953 h:\tncg15\globalillumination\glm\glm\gtx\component_wise.inl
 

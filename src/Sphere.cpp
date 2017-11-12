@@ -1,4 +1,9 @@
 #include "Sphere.h"
+Sphere::Sphere()
+{
+        position = glm::vec3(0.f);
+        radius = 0.f;
+}
 
 Sphere::Sphere(glm::vec3 pos, float rad, Surface s )
 {
@@ -12,9 +17,9 @@ Sphere::~Sphere()
     //dtor
 }
 
-float Sphere::getBRDF()
+Surface Sphere::getSurface()
 {
-    return surface.getBRDF();
+    return surface;
 }
 
 ColorDbl Sphere::getColor()
@@ -30,6 +35,11 @@ float Sphere::getRadius()
 glm::vec3 Sphere::getPosition()
 {
     return position;
+}
+
+glm::vec3 Sphere::getNormal(glm::vec3 hit_point)
+{
+    return glm::normalize(position - hit_point);
 }
 
 Ray Sphere::getReflectedRay( Ray &r )

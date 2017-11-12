@@ -5,10 +5,11 @@
 Surface::Surface()
 {
 }
-Surface::Surface(ColorDbl c, float brdf)
+Surface::Surface(ColorDbl c, int m)
 {
     color = c;
-    BRDF = brdf;
+    //BRDF = brdf;
+    model = m;
     //emission = e;
 }
 
@@ -22,7 +23,7 @@ ColorDbl Surface::getColor () {
     return color;
 }
 
-float Surface::getBRDF()
+int Surface::getModel()
 {
-    return BRDF;
+    return model;
 }

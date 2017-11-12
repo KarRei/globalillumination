@@ -1,0 +1,327 @@
+#include "Scene.h"
+
+Scene::Scene()
+{
+    createRoom();
+}
+
+/*Scene::~Scene()
+{
+
+}*/
+
+void Scene::createRoom(){
+    float lambertian = 0.2f;
+    float specular = 1.0f;
+    float light = 0.0f;
+
+    //ROOM
+    //Defining points in room
+    glm::vec3 aTop(13.0f, 0.0f, 5.0f), aBottom(13.0f, 0.0f, -5.0f);
+    glm::vec3 bTop(10.0f, 6.0f, 5.0f), bBottom(10.0f, 6.0f, -5.0f);
+    glm::vec3 cTop(10.0f, -6.0f, 5.0f), cBottom(10.0f, -6.0f, -5.0f);
+    glm::vec3 dTop(0.0f, 6.0f, 5.0f), dBottom(0.0f, 6.0f, -5.0f);
+    glm::vec3 eTop(0.0f, -6.0f, 5.0f), eBottom(0.0f, -6.0f, -5.0f);
+    glm::vec3 fTop(-3.0f, 0.0f, 5.0f), fBottom(-3.0f, 0.0f, -5.0f);
+
+    //Create surfaces
+    Surface wall1(ColorDbl(glm::vec3(1.0f, 0.0f, 0.0f)), lambertian); //red
+    Surface wall2(ColorDbl(glm::vec3(0.0f, 0.0f, 1.0f)), lambertian); //blue
+    Surface wall3(ColorDbl(glm::vec3(0.0f, 1.0f, 0.0f)), lambertian); //green
+    Surface wall4(ColorDbl(glm::vec3(1.0f, 1.0f, 0.0f)), lambertian); //yellow
+    Surface wall5(ColorDbl(glm::vec3(1.0f, 0.0f, 1.0f)), lambertian); //purple
+    Surface wall6(ColorDbl(glm::vec3(1.0f, 0.6f, 0.0f)), lambertian); //orange
+    Surface bottomTop(ColorDbl(glm::vec3(1.0f, 1.0f, 1.0f)), lambertian); //white
+
+    //Create Triangles 20 with normal in
+    //Walls
+    Triangle t1_a(bBottom, aBottom, aTop, wall1);
+    Triangle t1_b(bBottom, aTop, bTop, wall1);
+    Triangle t2_a(aBottom, cBottom, cTop, wall2);
+    Triangle t2_b(aBottom, cTop, aTop, wall2);
+    Triangle t3_a(dBottom, bBottom, bTop, wall3);
+    Triangle t3_b(dBottom, bTop, dTop, wall3);
+    Triangle t4_a(eBottom, eTop, cBottom, wall4);
+    Triangle t4_b(eTop, cTop, cBottom, wall4);
+    Triangle t5_a(fBottom, dBottom, dTop, wall5);
+    Triangle t5_b(fBottom, dTop, fTop, wall5);
+    Triangle t6_a(eBottom, fBottom, fTop, wall6);
+    Triangle t6_b(eBottom, fBottom, eTop, wall6);
+    //Floor
+    Triangle tf_a(fBottom, eBottom, dBottom, bottomTop);
+    Triangle tf_b(eBottom, cBottom, dBottom, bottomTop);
+    Triangle tf_c(dBottom, cBottom, bBottom, bottomTop);
+    Triangle tf_d(cBottom, aBottom, bBottom, bottomTop);
+    //Roof
+    Triangle tr_a(fTop, dTop, eTop, bottomTop);
+    Triangle tr_b(eTop, dTop, cTop, bottomTop);
+    Triangle tr_c(dTop, bTop, cTop, bottomTop);
+    Triangle tr_d(cTop, bTop, aTop, bottomTop);
+
+    //Add triangles to the mesh triangles
+    triangles.push_back(t1_a);
+    triangles.push_back(t1_b);
+    triangles.push_back(t2_a);
+    triangles.push_back(t2_b);
+    triangles.push_back(t3_a);
+    triangles.push_back(t3_b);
+    triangles.push_back(t4_a);
+    triangles.push_back(t4_b);
+    triangles.push_back(t5_a);
+    triangles.push_back(t5_b);
+    triangles.push_back(t6_a);
+    triangles.push_back(t6_b);
+    triangles.push_back(tf_a);
+    triangles.push_back(tf_b);
+    triangles.push_back(tf_c);
+    triangles.push_back(tf_d);
+    triangles.push_back(tr_a);
+    triangles.push_back(tr_b);
+    triangles.push_back(tr_c);
+    triangles.push_back(tr_d);
+
+    //OBJECTS
+    //Defining points of Tetrahedron (consists of 4 triangles)
+    glm::vec3 tetra1(5.0f, 4.0f, 3.0f);
+    glm::vec3 tetra2(7.0f, 5.0f, -1.0f);
+    glm::vec3 tetra3(7.0f, 0.0f, -1.0f);
+    glm::vec3 tetra4(9.0f, 3.0f, -3.0f);
+
+    Surface tetra_col(ColorDbl(glm::vec3(0.0f, 1.0f, 1.0f)), specular); //turquose
+
+    Triangle tetra_tri1(tetra1, tetra2, tetra3, tetra_col);
+    Triangle tetra_tri2(tetra1, tetra3, tetra4, tetra_col);
+    Triangle tetra_tri3(tetra1, tetra4, tetra2, tetra_col);
+    Triangle tetra_tri4(tetra2, tetra4, tetra3, tetra_col);
+
+    triangles.push_back(tetra_tri1);
+    triangles.push_back(tetra_tri2);
+    triangles.push_back(tetra_tri3);
+    triangles.push_back(tetra_tri4);
+
+
+    //Defining points of Sphere
+    Surface sphere_color(ColorDbl(glm::vec3(1.0f, 0.01f, 0.5f)), specular); //pink
+    Sphere s1(glm::vec3 (11.0f, -3.0f, 0.0f), 1.0f, sphere_color );
+    spheres.push_back(s1);
+
+    //LIGHT
+
+    glm::vec3 light1(4.0f, 1.0f, 4.99f);
+    glm::vec3 light2(4.0f, -1.0f, 4.99f);
+    glm::vec3 light3(6.0f, -1.0f, 4.99f);
+    glm::vec3 light4(6.0f, 1.0f, 4.99f);
+
+    //white light
+    Surface surface_light(ColorDbl(glm::vec3(1.0f, 1.0f, 0.0f)), light); //white
+
+    Triangle t_light1(light1, light3, light4, surface_light);
+    Triangle t_light2(light1, light2, light3, surface_light);
+
+    triangles.push_back(t_light1);
+    triangles.push_back(t_light2);
+}
+
+Ray Scene::getRadiance()
+{
+    //float radiance = 1;
+    /*
+    for(vector<Ray>::iterator it = rays.end(); it != rays.begin(); it--)
+    {
+        it.
+    }*/
+
+    Ray temp = rays.back();
+   // cout << "impo " << temp.getImportance() << endl;
+    //If ray hits light source
+    if(temp.getImportance() > 0.00000001f)
+    {
+        float radiance = temp.getImportance();
+        temp.setColor(temp.getColor() * radiance);
+    }
+
+    else
+        temp.setColor(ColorDbl(glm::vec3(0.0f, 0.0f, 0.0f)));
+
+    //delete list, obs check if correct
+    rays.clear();
+
+    return temp;
+}
+
+//Return jag är klar, diffus -> true
+void Scene::rayIntersection(Ray &r)
+{
+    //Ray temp_ray = r;
+
+    //Loop through all triangles in scene
+    //Loop the current triangle
+    Triangle* temp;
+    float distance = 1000.0f; //Arbitrary large number to check against distance to triangle
+    bool sphere_intersection = false;
+    glm::vec3 intersectionPoint;
+
+    //Test triangle intersection
+    for(vector<Triangle>::iterator it = triangles.begin(); it != triangles.end(); it++)
+    {
+        //Passing it just passes an itterator object, it* passes the underlying object,
+        //&(*it) passes the address to that underlying object
+        // If true then there is an intersection!
+        if (tryIntersectionTriangle(glm::normalize(r.getDirection()), r.getStart(), *it, distance, intersectionPoint))
+            temp = &(*it);
+
+    }
+
+    //test sphere intersection
+    Sphere* temp_sp;
+    for(vector<Sphere>::iterator it = spheres.begin(); it != spheres.end(); it++)
+    {
+        if (tryIntersectionSphere(glm::normalize(r.getDirection()), r.getStart(), *it, distance, intersectionPoint))
+        {
+            temp_sp = &(*it);
+            sphere_intersection = true;
+        }
+    }
+
+    if (sphere_intersection){
+        // check if temp is specular or diffuse
+        // if diffuse -> set color to the pixel
+        // if specular -> call this method again
+
+        //r.setColor(temp_sp->getColor());
+        //rays.push_back(r);
+        //temp_sp->getColor();
+
+        float model = temp_sp->getBRDF();
+
+        //if ^ is specular -> getReflectedRay(r)
+        r.setColor(temp_sp->getColor());
+        rays.push_back(r);
+        if (model > 0.0f && r.getImportance() > 0.0000001f)
+        {
+            //Ray rr = temp->getReflectedRay(r);
+            Ray rr = temp_sp->getReflectedRay(r);
+            rayIntersection(rr);
+        }
+    }
+
+    //intersection with triangle
+    else {
+        float model = temp->getBRDF();
+
+        //if ^ is specular -> getReflectedRay(r)
+        r.setColor(temp->getColor());
+        rays.push_back(r);
+
+        if (model > 0.0f && r.getImportance() > 0.0000001f)
+        {
+            //Ray rr = temp->getReflectedRay(r);
+            Ray rr = temp->getReflectedRay(r);
+            rayIntersection(rr);
+        }
+
+        //else, hits light source, stops
+        //if (model == 0.0
+    }
+
+}
+
+bool Scene::castShadowRay(Ray& rayIncoming, glm::vec3 normal, glm::vec3 hitPoint)
+{
+    glm::vec3 lightDir = light.pos - hitPoint;
+}
+
+
+bool Scene::tryIntersectionSphere(glm::vec3 direction, glm::vec3 start, Sphere& sph, float& distance, glm::vec3& iPoint)
+{
+    const float ZERO = 0.0000001;
+    float radius = sph.getRadius();
+    glm::vec3 center = sph.getPosition();
+
+    float b = glm::dot(2.0f * direction , start - center );
+    float c = glm::dot( start - center , start - center ) - glm::pow(radius, 2);
+
+    float d1 = -(b / 2.0f) + glm::sqrt(glm::pow( (b / 2.0), 2) - c);
+    float d2 = -(b / 2.0f) - glm::sqrt(glm::pow( (b / 2.0), 2) - c);
+
+
+    if((glm::pow( (b / 2.0), 2) - c) < ZERO)
+       return false;
+
+    //Sphere behind camera
+    if (d1 <= 0 && d2 <= 0) {
+        return false;
+    }
+
+    else if (d1 < d2) {
+        iPoint = start + d1*direction;
+        distance = glm::distance(start, iPoint );
+
+        return true;
+    }
+
+    else if (d2 < d1) {
+        iPoint = start + d2*direction;
+        distance = glm::distance(start, iPoint );
+        return true;
+    }
+
+    //camera inside the sphere
+    else {
+        iPoint = start + d2*direction;
+        distance = glm::distance(start, iPoint );
+        return true;
+    }
+
+    return false;
+}
+
+bool Scene::tryIntersectionTriangle(glm::vec3 D, glm::vec3 start, Triangle& tri, float& d, glm::vec3& iPoint)
+{
+    //Möller Trumbore Algorithm
+    const float ZERO = 0.0000001;
+    glm::vec3 e1, e2, T, P, Q;
+    e1 = tri.getPoint(2) - tri.getPoint(1);
+    e2 = tri.getPoint(3) - tri.getPoint(1);
+
+    T = start - tri.getPoint(1);
+    P = glm::cross(D, e2);
+    Q = glm::cross(T, e1);
+
+    double a = glm::dot(e1, P);
+
+    // For float numbers, don't check if they are exactly the same. Check whether their difference is very small
+    if (a > -ZERO && a < ZERO) {
+        return false;
+    }
+    double f = 1.0/a;
+    double u = glm::dot(T, P) * f;
+    double v = glm::dot(D, Q) * f;
+
+    //u + v < 1 && u >0 && v >0
+    if( u < 0.f || u > 1.f)
+        return false;
+
+    if( v < 0.f || u + v > 1.f)
+        return false;
+
+    double t = glm::dot(e2, Q) * f;
+
+    // if the intersection point lies behind the imageplane and the distance is smaller than a previous tringle
+    if (t > 1.f && t < d) {
+        d = (float)t;
+        iPoint = start + D*t;
+        return true;
+    }
+
+    return false;
+}
+
+
+
+
+
+
+
+
+

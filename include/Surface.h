@@ -3,21 +3,27 @@
 
 #include <ColorDbl.h>
 
+//int LAMBERTIAN = 0;
+//int SPECULAR = 1;
+//int LIGHT = 2;
+
 class Surface
 {
     public:
         Surface();
-        Surface(ColorDbl c, float brdf);
+        Surface(ColorDbl c, int model = 0);
         virtual ~Surface();
 
         ColorDbl getColor ();
-        float getBRDF();
+        int getModel();
 
     protected:
 
     private:
         ColorDbl color;
-        float BRDF;
+        //float BRDF;
+        int model;
+
         //glm::vec3 emission;
 
         //lambertian

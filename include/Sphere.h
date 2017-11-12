@@ -8,14 +8,16 @@
 class Sphere
 {
     public:
+        Sphere();
         Sphere(glm::vec3 pos, float rad, Surface s );
         virtual ~Sphere();
 
+        Surface getSurface();
         ColorDbl getColor();
         float getRadius();
         glm::vec3 getPosition();
-        float getBRDF();
         Ray getReflectedRay(Ray &r);
+        glm::vec3 getNormal(glm::vec3 hit_point);
 
     protected:
 

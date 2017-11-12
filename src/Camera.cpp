@@ -25,15 +25,12 @@ void Camera::render(Scene& scene) { // const Scene, so we dont accidentaly chang
             //crete a ray from the eye to current pixel
             Ray r(eye, imagePlanePosition);
             // Launch the ray into the scene. The function will take the reference to the ray and set it's color.
-            scene.rayIntersection(r);
-            Ray lastRay = scene.getRadiance();
+            glm::vec3 color = scene.rayIntersection(r);
             //after rayIntersection r's color (colorDbl) has changes to the triangle color that it hits
 
-            imagePlane[y][z].setColor(lastRay.getColor());
+            imagePlane[y][z].setColor(ColorDbl(color));
         }
     }
-
-    //delete ray(not nec)
 }
 
 void Camera::createImage(const string filename) {

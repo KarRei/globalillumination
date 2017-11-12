@@ -45,17 +45,24 @@ ColorDbl Triangle::getColor()
     return surface.getColor();
 }
 
-float Triangle::getBRDF()
+Surface Triangle::getSurface()
 {
-    return surface.getBRDF();
+    return surface;
 }
 
 Ray Triangle::getReflectedRay( Ray &r )
 {
+    //Reflection for specular
     Ray temp(r.getDirection(), glm::reflect(r.getDirection(), normal));
-    //set importance
-    temp.setImportance(surface.getBRDF() * r.getImportance());
 
+
+    //Reflection for Lambertian surfaces
+
+
+
+
+    //set importance
+    //temp.setImportance(surface.getBRDF() * r.getImportance());
 
     return temp;
 }

@@ -24,7 +24,7 @@ class Triangle
         glm::vec3 getNormal();
 
         ColorDbl getColor();
-        float getBRDF();
+        Surface getSurface();
 
         Ray getReflectedRay(Ray &r);
 

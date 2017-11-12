@@ -5,7 +5,7 @@
 #include "Pixel.h"
 #include "Scene.h"
 #include "Direction.h"
-#include "../glm/glm/glm.hpp"
+//#include "../glm/glm/glm.hpp"
 #include <array>
 #include <vector>
 #include <Ray.h>
