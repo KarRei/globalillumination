@@ -250,11 +250,11 @@ glm::vec3 Scene::castShadowRay(Ray& rayIncoming, glm::vec3 normal, glm::vec3 hit
             return glm::vec3 ( 0.0f );
 
         //cout << light_ray.getDirection().x << " " << light_ray.getDirection().y << " " << light_ray.getDirection().z << endl;
-        double A = glm::dot(-normal, light_ray.getDirection());
+        float A = glm::dot(-normal, light_ray.getDirection());
 
-        double B = glm::clamp(glm::dot(lightSource.getNormal(), -light_ray.getDirection()), 0.0f, 1.0f);
+        float B = glm::clamp(glm::dot(lightSource.getNormal(), -light_ray.getDirection()), 0.0f, 1.0f);
         //cout << B << endl;
-        double C = A * B / pow(length_light, 2.0);
+        float C = A * B / pow(length_light, 2.0);
 
         Surface light_surface = lightSource.getSurface();
         color += light_surface.getColor().getColorVec() * light_surface.getIntensity() * C;
