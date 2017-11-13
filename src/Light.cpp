@@ -27,7 +27,7 @@ Surface Light::getSurface()
 
 float Light::getArea()
 {
-    return (p3.x - p1.x) * glm::abs(p3.y -p1.y);
+    return (glm::abs(p3.x - p1.x) * glm::abs(p3.y - p1.y));
 }
 
 glm::vec3 Light::getRandomPoint()

@@ -895,7 +895,7 @@
 1507458956 source:h:\tncg15\globalillumination\src\direction.cpp
 	"Direction.h"
 
-1510499606 source:h:\tncg15\globalillumination\src\scene.cpp
+1510576172 source:h:\tncg15\globalillumination\src\scene.cpp
 	"Scene.h"
 
 1510503035 h:\tncg15\globalillumination\include\scene.h
@@ -1423,12 +1423,16 @@
 1507814974 source:c:\users\karin\documents\skola\tncg15 global illumination and rendering\cbglobalillumination\src\scene.cpp
 	"Scene.h"
 
-1510499690 h:\tncg15\globalillumination\include\sphere.h
+1510576386 h:\tncg15\globalillumination\include\sphere.h
 	<Surface.h>
 	<ColorDbl.h>
 	<Ray.h>
+	"../glm/glm/glm.hpp"
+	<../glm/glm/gtx/rotate_vector.hpp>
+	<math.h>
+	<stdlib.h>
 
-1510499691 source:h:\tncg15\globalillumination\src\sphere.cpp
+1510577278 source:h:\tncg15\globalillumination\src\sphere.cpp
 	"Sphere.h"
 
 1510502575 h:\tncg15\globalillumination\include\light.h
@@ -1438,7 +1442,7 @@
 	<stdlib.h>
 	<time.h>
 
-1510504241 source:h:\tncg15\globalillumination\src\light.cpp
+1510577093 source:h:\tncg15\globalillumination\src\light.cpp
 	"Light.h"
 
 1507458953 h:\tncg15\globalillumination\glm\glm\gtx\string_cast.hpp

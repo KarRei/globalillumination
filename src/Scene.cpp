@@ -131,6 +131,7 @@ glm::vec3 Scene::rayIntersection(Ray &r, int nr_iterations)
     glm::vec3 hitPoint_sph = glm::vec3(100.f);
     glm::vec3 color;
 
+    //get back the tri/sphere that the ray intersects first
     Triangle nearest_tri = firstIntersectedTriangle(r, hitPoint_tri);
     Sphere nearest_sph = firstIntersectedSphere(r, hitPoint_sph);
 
@@ -170,7 +171,7 @@ glm::vec3 Scene::rayIntersection(Ray &r, int nr_iterations)
     else if (length_sph < length_tri){ //a sphere is closest
         Surface surf = nearest_sph.getSurface();
 
-        Ray reflected_ray = nearest_sph.getReflectedRay(r, hitPoint_sph); //change in sphere
+        Ray reflected_ray = nearest_sph.getReflectedRay(r, hitPoint_sph);
 
         glm::vec3 importance = surf.getColor().getColorVec();
         glm::vec3 light_contribution = castShadowRay(r, nearest_sph.getNormal(hitPoint_sph), hitPoint_sph );
@@ -227,11 +228,11 @@ glm::vec3 Scene::castShadowRay(Ray& rayIncoming, glm::vec3 normal, glm::vec3 hit
 {
     glm::vec3 color(0.0f);
     int lightCount = 0;
-    for (int i = 0; i < 2; ++i) {
+    //for (int i = 0; i < 2; ++i) {
         ++lightCount;
         glm::vec3 randomPointOnLight = lightSource.getRandomPoint();
 
-        Ray light_ray(hitPoint, glm::normalize(randomPointOnLight-hitPoint));
+        Ray light_ray(hitPoint, glm::normalize(randomPointOnLight - hitPoint));
         float length_light = glm::distance(hitPoint, randomPointOnLight);
 
         glm::vec3 hitPoint_tri;
@@ -249,20 +250,18 @@ glm::vec3 Scene::castShadowRay(Ray& rayIncoming, glm::vec3 normal, glm::vec3 hit
             return glm::vec3 ( 0.0f );
 
         //cout << light_ray.getDirection().x << " " << light_ray.getDirection().y << " " << light_ray.getDirection().z << endl;
-        float A = glm::dot(-normal, light_ray.getDirection());
+        double A = glm::dot(-normal, light_ray.getDirection());
 
-        float B = glm::clamp(glm::dot(lightSource.getNormal(), -light_ray.getDirection()), 0.0f, 1.0f);
+        double B = glm::clamp(glm::dot(lightSource.getNormal(), -light_ray.getDirection()), 0.0f, 1.0f);
         //cout << B << endl;
-        float C = A * B / pow(length_light, 2.0);
+        double C = A * B / pow(length_light, 2.0);
 
         Surface light_surface = lightSource.getSurface();
         color += light_surface.getColor().getColorVec() * light_surface.getIntensity() * C;
-
-
-    }
+    //}
 
     //cout << color.x << " " << color.y << " " << color.z << endl;
-    color *= lightSource.getArea()/ (float)lightCount;
+    color *= lightSource.getArea(); // /(float)lightCount;
     return color;
 }
 

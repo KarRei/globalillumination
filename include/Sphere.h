@@ -4,6 +4,10 @@
 #include <Surface.h>
 #include <ColorDbl.h>
 #include <Ray.h>
+#include "../glm/glm/glm.hpp"
+#include <../glm/glm/gtx/rotate_vector.hpp>
+#include <math.h>
+#include <stdlib.h>
 
 class Sphere
 {
