@@ -32,22 +32,10 @@ float Light::getArea()
 
 glm::vec3 Light::getRandomPoint()
 {
-
     float random = ((float) rand()) / (float) RAND_MAX;
 
-    float diffX = 6.0f - 4.0f;
-    float rX = random * diffX;
+    float randX = random * (6.0f - 4.0f) + 4.0f;
+    float randY = 2 * random - 1;
 
-    float diffY = 1.0f + 1.0f;
-    float rY = random * diffY;
-
-
-    float randX = 4.0f + rX;
-    float randY = -1.0f + rY;
-
-    return glm::vec3(randX, randY, 4.99f);
-
-   /*float randX = 4.0f + rand() % (6.0f - 4.0f);
-   float randY = -1.0f + rand() % (1.0f + 1.0f);*/
-
+    return glm::vec3(randX, randY, 4.90f);
 }
