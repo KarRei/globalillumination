@@ -1548,7 +1548,7 @@
 
 1507458953 h:\tncg15\globalillumination\glm\glm\gtx\rotate_vector.inl
 
-1510579109 source:h:\tncg15 - global illumination and rendering\globalillumination\main.cpp
+1512573023 source:h:\tncg15 - global illumination and rendering\globalillumination\main.cpp
 	<iostream>
 	"glm/glm/glm.hpp"
 	"Scene.h"
@@ -1946,7 +1946,7 @@
 	<intrin.h>
 	<limits>
 
-1511269218 h:\tncg15 - global illumination and rendering\globalillumination\include\scene.h
+1512580521 h:\tncg15 - global illumination and rendering\globalillumination\include\scene.h
 	<vector>
 	<Triangle.h>
 	<Ray.h>
@@ -2053,12 +2053,12 @@
 	<iomanip>
 	<iostream>
 
-1510579109 h:\tncg15 - global illumination and rendering\globalillumination\include\pixel.h
+1512575166 h:\tncg15 - global illumination and rendering\globalillumination\include\pixel.h
 	<pixel.h>
 	<ColorDbl.h>
 	<Ray.h>
 
-1510579110 source:h:\tncg15 - global illumination and rendering\globalillumination\src\camera.cpp
+1512581966 source:h:\tncg15 - global illumination and rendering\globalillumination\src\camera.cpp
 	"Camera.h"
 
 1510579110 source:h:\tncg15 - global illumination and rendering\globalillumination\src\colordbl.cpp
@@ -2067,25 +2067,25 @@
 1510579110 source:h:\tncg15 - global illumination and rendering\globalillumination\src\direction.cpp
 	"Direction.h"
 
-1511272393 source:h:\tncg15 - global illumination and rendering\globalillumination\src\light.cpp
+1512577501 source:h:\tncg15 - global illumination and rendering\globalillumination\src\light.cpp
 	"Light.h"
 
-1510579110 source:h:\tncg15 - global illumination and rendering\globalillumination\src\pixel.cpp
+1512575166 source:h:\tncg15 - global illumination and rendering\globalillumination\src\pixel.cpp
 	"Pixel.h"
 
-1510579110 source:h:\tncg15 - global illumination and rendering\globalillumination\src\ray.cpp
+1512069539 source:h:\tncg15 - global illumination and rendering\globalillumination\src\ray.cpp
 	"Ray.h"
 
-1511272101 source:h:\tncg15 - global illumination and rendering\globalillumination\src\scene.cpp
+1512590504 source:h:\tncg15 - global illumination and rendering\globalillumination\src\scene.cpp
 	"Scene.h"
 
-1511258718 source:h:\tncg15 - global illumination and rendering\globalillumination\src\sphere.cpp
+1512585037 source:h:\tncg15 - global illumination and rendering\globalillumination\src\sphere.cpp
 	"Sphere.h"
 
 1510579110 source:h:\tncg15 - global illumination and rendering\globalillumination\src\surface.cpp
 	"Surface.h"
 
-1511260557 source:h:\tncg15 - global illumination and rendering\globalillumination\src\triangle.cpp
+1512585078 source:h:\tncg15 - global illumination and rendering\globalillumination\src\triangle.cpp
 	"Triangle.h"
 
 1510579110 source:h:\tncg15 - global illumination and rendering\globalillumination\src\vertex.cpp

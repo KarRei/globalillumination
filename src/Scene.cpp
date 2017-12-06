@@ -25,13 +25,14 @@ void Scene::createRoom(){
     glm::vec3 fTop(-3.0f, 0.0f, 5.0f), fBottom(-3.0f, 0.0f, -5.0f);
 
     //Create surfaces
-    Surface wall1(ColorDbl(glm::vec3(1.0f, 0.0f, 0.0f))); //red
-    Surface wall2(ColorDbl(glm::vec3(0.0f, 0.0f, 1.0f))); //blue
-    Surface wall3(ColorDbl(glm::vec3(0.0f, 1.0f, 0.0f))); //green
-    Surface wall4(ColorDbl(glm::vec3(1.0f, 1.0f, 0.0f))); //yellow
-    Surface wall5(ColorDbl(glm::vec3(1.0f, 1.0f, 1.0f))); //white
-    Surface wall6(ColorDbl(glm::vec3(1.0f, 0.6f, 0.0f))); //orange
-    Surface bottomTop(ColorDbl(glm::vec3(0.0f, 0.0f, 0.0f))); //white
+    Surface wall1(ColorDbl(glm::vec3(1.0f, 0.0f, 0.0f))); //red -->
+    Surface wall2(ColorDbl(glm::vec3(0.0f, 0.0f, 1.0f))); //blue -->
+    Surface wall3(ColorDbl(glm::vec3(0.0f, 1.0f, 0.0f))); //green -->
+    Surface wall4(ColorDbl(glm::vec3(1.0f, 1.0f, 0.0f))); //yellow -->
+    Surface wall5(ColorDbl(glm::vec3(1.0f, 1.0f, 1.0f))); //white -->
+    Surface wall6(ColorDbl(glm::vec3(1.0f, 0.6f, 0.0f))); //orange -->
+    Surface bottomTop(ColorDbl(glm::vec3(1.0f, 1.0f, 1.0f))); //white
+
 
     //Create Triangles 20 with normal in
     //Walls
@@ -82,17 +83,18 @@ void Scene::createRoom(){
 
     //OBJECTS
     //Defining points of Tetrahedron (consists of 4 triangles)
-    glm::vec3 tetra1(5.0f, -1.0f, -1.0f);
-    glm::vec3 tetra2(6.0f, -3.0f, -1.0f);
-    glm::vec3 tetra3(7.0f, -2.0f, -1.0f);
-    glm::vec3 tetra4(6.5f, -2.5f, 1.0f);
+    glm::vec3 tetra1(3.0f, -1.0f, 0.0f);
+    glm::vec3 tetra2(4.0f, -3.0f, -1.0f);
+    glm::vec3 tetra3(5.0f, -2.0f, -1.0f);
+    glm::vec3 tetra4(4.5f, -2.5f, 1.0f);
 
-    Surface tetra_col(ColorDbl(glm::vec3(0.0f, 1.0f, 1.0f)), 1); //turquose
+    Surface tetra_col(ColorDbl(glm::vec3(0.0f, 1.0f, 1.0f))); //turquose
+    Surface sphere_color(ColorDbl(glm::vec3(1.0f, 0.01f, 0.5f))); //pink
 
-    Triangle tetra_tri1(tetra1, tetra3, tetra2, tetra_col);
-    Triangle tetra_tri2(tetra1, tetra4, tetra3, tetra_col);
-    Triangle tetra_tri3(tetra1, tetra2, tetra4, tetra_col);
-    Triangle tetra_tri4(tetra2, tetra3, tetra4, tetra_col);
+    Triangle tetra_tri1(tetra1, tetra3, tetra2, sphere_color);
+    Triangle tetra_tri2(tetra1, tetra4, tetra3, sphere_color);
+    Triangle tetra_tri3(tetra1, tetra2, tetra4, sphere_color);
+    Triangle tetra_tri4(tetra2, tetra3, tetra4, sphere_color);
 
     triangles.push_back(tetra_tri1);
     triangles.push_back(tetra_tri2);
@@ -101,9 +103,9 @@ void Scene::createRoom(){
 
 
     //Defining points of Sphere
-    //Surface sphere_color(ColorDbl(glm::vec3(1.0f, 0.01f, 0.5f)), 0); //pink
-    Surface sphere_color(ColorDbl(glm::vec3(1.0f, 1.0f, 1.0f)), 1); //pink
-    Sphere s1(glm::vec3 (6.0f, 3.0f, 0.0f), 1.0f, sphere_color );
+
+    //Surface sphere_color(ColorDbl(glm::vec3(1.0f, 1.0f, 1.0f))); //white
+    Sphere s1(glm::vec3 (4.0f, 2.0f, -2.0f), 1.0f, tetra_col );
     spheres.push_back(s1);
 
     //LIGHT
@@ -128,13 +130,9 @@ void Scene::createRoom(){
 
 glm::vec3 Scene::rayIntersection(Ray &r, int nr_iterations)
 {
-    glm::vec3 hitPoint_tri;
+    glm::vec3 hitPoint_tri = glm::vec3(100.f);
     glm::vec3 hitPoint_sph = glm::vec3(100.f);
-    glm::vec3 color;
-
-    //get back the tri/sphere that the ray intersects first
-    //Triangle nearest_tri = firstIntersectedTriangle(r, hitPoint_tri);
-    //Sphere nearest_sph = firstIntersectedSphere(r, hitPoint_sph);
+    glm::vec3 color(0.0f);
 
     //lists with intersected objects
     list<TriangleIntersection> triangle_list = firstIntersectedTriangle(r);
@@ -149,58 +147,43 @@ glm::vec3 Scene::rayIntersection(Ray &r, int nr_iterations)
     if (sphere_list.size() > 0)
         length_sph = glm::distance(sphere_list.front().point, r.getStart());
 
-    //check if triangle or sphere is closest, we know that hitPoint lies on the closest object
-    //float length_tri = glm::distance(r.getStart(), hitPoint_tri);
-    //float length_sph = glm::distance(r.getStart(), hitPoint_sph); //hitPoint can be 100 and radius can be 0
-
-    //Get nearest triangle
+    //Distance no nearest triangle and spheere
     Triangle nearest_tri = triangle_list.front().triangle;
     hitPoint_tri = triangle_list.front().point;
 
     Sphere nearest_sph = sphere_list.front().sphere;
     hitPoint_sph = sphere_list.front().point;
 
-    // TRIANGLE
+    // TRIANGLE closest
     if (length_tri < length_sph)
     {
+        //Only Lambertian materials
+        //The radiance of a diffuse emitter does not depend on direction
         Surface surf = nearest_tri.getSurface();
 
-        //light source //Från annas kod, ska ligga i light_contribution?
-        /*
+        //If light source
         if(surf.getModel() == 2)
-        {
-            float light_cont = glm::dot( nearest_tri.getNormal(), r.getDirection() );
-            light_cont *= ( 7.0f / length_tri );
-
-            return surf.getColor().getColorVec() * light_cont;
-        }*/
-        if(surf.getModel() == 2)
-            return surf.getColor().getColorVec();
+            return surf.getColor().getColorVec();//*(1/tri_distance)
 
         Ray reflected_ray = nearest_tri.getReflectedRay(r, hitPoint_tri);
 
-        //glm::vec3 importance = surf.getColor().getColorVec();
         glm::vec3 light_contribution = castShadowRay(r, nearest_tri.getNormal(), hitPoint_tri );
 
-        float cos_angle = glm::angle(reflected_ray.getDirection(), nearest_tri.getNormal());
+        float angle = glm::angle(glm::normalize(r.getDirection()), nearest_tri.getNormal());
 
-        glm::vec3 emittance;
+        glm::vec3 intensity = nearest_tri.getColor().getColorVec()*(0.3f); //* (0.8f / 3.1415f);
 
-        if (surf.getModel() == 1)
-            emittance = glm::vec3(0.0f); // * 0.8f * 3.1415f;
-        else
-            emittance = nearest_tri.getColor().getColorVec() * 0.8f / 3.1415f;
-
-
-        color += emittance;
+        //local lighting contribution
+        color += intensity;
         color *= light_contribution;
+
 
         //Diffuse
         //Continue reflections
         if (nr_iterations < MAX_ITERATIONS)
         {
             nr_iterations++;
-            color += rayIntersection(reflected_ray, nr_iterations) * 0.8f;
+            color += rayIntersection(reflected_ray, nr_iterations)* cos(angle); // / 3.1415f)*cos(angle); //
         }
     }
 
@@ -214,26 +197,21 @@ glm::vec3 Scene::rayIntersection(Ray &r, int nr_iterations)
 
         Ray reflected_ray = nearest_sph.getReflectedRay(r, hitPoint_sph);
 
-       // glm::vec3 importance = surf.getColor().getColorVec() * ( 0.2f / 3.1415f );
         glm::vec3 light_contribution = castShadowRay(r, nearest_sph.getNormal(hitPoint_sph), hitPoint_sph );
 
-        float cos_angle = glm::angle(reflected_ray.getDirection(), nearest_sph.getNormal(hitPoint_sph));
+        float angle = glm::angle(glm::normalize(r.getDirection()), nearest_sph.getNormal(hitPoint_sph));
 
-        glm::vec3 emittance;
-        if (surf.getModel() == 1)
-            emittance =  glm::vec3(0.0f); // * 0.8f * 3.1415f;
-        else
-            emittance = nearest_sph.getColor().getColorVec() * 0.8f / 3.1415f;
+        glm::vec3 intensity = nearest_sph.getColor().getColorVec()*(0.3f);//*(0.8f / 3.1415f);
 
-        color += (emittance);
+        color += intensity;
         color *= light_contribution ;
 
         //Diffuse
         //Continue reflections
-        if (nr_iterations < MAX_ITERATIONS)
+        if (nr_iterations < MAX_ITERATIONS )
         {
             nr_iterations++;
-            color += rayIntersection(reflected_ray, nr_iterations) * 0.8f;
+            color += rayIntersection(reflected_ray, nr_iterations)*cos(angle);// / 3.1415f ); //
         }
     }
 
@@ -243,20 +221,6 @@ glm::vec3 Scene::rayIntersection(Ray &r, int nr_iterations)
 //This function should only return the first intersected triangle
 list<TriangleIntersection> Scene::firstIntersectedTriangle(Ray r)
 {
-    /*
-    Triangle temp;
-    float distance = 10000.f;
-    float distance_test = 10000.f;
-
-    //Test triangle intersection
-    for(vector<Triangle>::iterator it = triangles.begin(); it != triangles.end(); it++)
-    {
-        if ( tryIntersectionTriangle(glm::normalize(r.getDirection()), r.getStart(), *it, distance, hPoint) )
-            temp = *it;
-    }
-
-    return temp;*/
-
     list<TriangleIntersection> intersection_list = {};
 
     glm::vec3 rayStart = r.getStart();
@@ -285,17 +249,6 @@ list<TriangleIntersection> Scene::firstIntersectedTriangle(Ray r)
 
 list<SphereIntersection> Scene::firstIntersectedSphere(Ray r)
 {
-    /*
-    Sphere temp_sp;
-    float distance = 10000.f;
-
-    for(vector<Sphere>::iterator it = spheres.begin(); it != spheres.end(); it++)
-    {
-        if (tryIntersectionSphere(glm::normalize(r.getDirection()), r.getStart(), *it, distance, hPoint))
-            temp_sp = *it;
-    }
-    return temp_sp;*/
-
     list<SphereIntersection> intersection_list = {};
     glm::vec3 rayStart = r.getStart();
 
@@ -309,7 +262,6 @@ list<SphereIntersection> Scene::firstIntersectedSphere(Ray r)
             si.point = temp_hPoint + 0.001f * it->getNormal(temp_hPoint);
             intersection_list.push_back(si);
         }
-
     }
     return intersection_list;
 }
@@ -317,7 +269,9 @@ list<SphereIntersection> Scene::firstIntersectedSphere(Ray r)
 
 glm::vec3 Scene::castShadowRay(Ray& rayIncoming, glm::vec3 normal, glm::vec3 hitPoint)
 {
-    glm::vec3 color(0.0f);
+    glm::vec3 directlight_contribution = glm::vec3(0.0f);
+    for (int i = 0; i < 4; i++){
+    //glm::vec3 directlight_contribution(0.0f);
     glm::vec3 randomPointOnLight = lightSource.getRandomPoint();
 
     Ray light_ray(hitPoint, glm::normalize( randomPointOnLight - hitPoint ));
@@ -329,54 +283,48 @@ glm::vec3 Scene::castShadowRay(Ray& rayIncoming, glm::vec3 normal, glm::vec3 hit
     // Nearest triangle
     TriangleIntersection nearets_tri = triangle_list.front();
     //SphereIntersection nearets_sph = sphere_list.front();
-    //check if triangle or sphere is closest, we know that hitPoint lies on the closest object
+    //check if triangle or sphere is closest, we know that hitPoi4.99nt lies on the closest object
     float length_tri = 10000000.0f;
     float length_sph = 10000000.0f;
+
     if (triangle_list.size() > 0)
         length_tri = abs(glm::distance( hitPoint, nearets_tri.point ));
+
     if (sphere_list.size())
         length_sph = abs(glm::distance( hitPoint, sphere_list.front().point ));
 
+//        if ( abs(length_tri - length_light) < 0.01 )
     //shadow
-    if ( length_tri < length_light || length_sph < length_light )
-        return glm::vec3 ( 0.0f );
+    if ( length_tri < length_light || length_sph < length_light ){
+        directlight_contribution += glm::vec3 ( 0.0f );
+        //continue;
+    }
+    else{
 
-    //Point in direct light
-    float A = glm::dot( normal, light_ray.getDirection() ); //n dot l
-    float B = glm::clamp( glm::dot( lightSource.getNormal(), light_ray.getDirection() ), 0.0f, 1.0f );
+        //for point light source, attenuation depending on light distance
+        float attenuation = 1.f;
 
-    //float C = A * B / ( pow( length_tri, 2.0 ) );
-    float C;
+        if(length_light > 1.f)
+            attenuation = 1.f / sqrt(length_light);
 
+        //Point in direct light
+        //kd*cos()
+        glm::vec3 A = glm::normalize(light_ray.getDirection());
+        float C = max(0.0f, glm::dot(normal, A));
 
-    if ( length_sph < length_tri )
-    {
-        C = A * B / ( pow( length_sph, 2.0 ) );
-        A *= ( 2.0f / length_sph );
+        Surface light_surface = lightSource.getSurface();
+
+        directlight_contribution += ( glm::vec3(20.0f) * C * 0.2f* attenuation );
+    }
     }
 
-    else
-    {
-        C = A * B / ( pow( length_tri, 2.0 ) );
-        A *= ( 2.0f / length_tri );
-    }
-
-
-    //float B = max( 0.0f, A );
-
-    Surface light_surface = lightSource.getSurface();
-    color += light_surface.getIntensity() * A;
-        //color += light_surface.getColor().getColorVec() * light_surface.getIntensity() * A;
-    //color = light_surface.getIntensity() * B * 0.4f;
-
-
-    return color;
+    return directlight_contribution / 4.f;
 }
 
 
 bool Scene::tryIntersectionSphere(glm::vec3 direction, glm::vec3 start, Sphere& sph, glm::vec3& iPoint)
 {
-    const float ZERO = 0.0000001;
+    const float ZERO = 0.0000000001;
     float radius = sph.getRadius();
     glm::vec3 center = sph.getPosition();
 
@@ -416,14 +364,13 @@ bool Scene::tryIntersectionSphere(glm::vec3 direction, glm::vec3 start, Sphere& 
         //happens
         return true;
     }
-
     return false;
 }
 
 bool Scene::tryIntersectionTriangle(glm::vec3 D, glm::vec3 start, Triangle& tri, glm::vec3& iPoint)
 {
     //Möller Trumbore Algorithm
-    const float ZERO = 0.000001;
+    const float ZERO = 0.000000001;
     glm::vec3 e1, e2, T, P, Q;
     e1 = tri.getPoint(2) - tri.getPoint(1);
     e2 = tri.getPoint(3) - tri.getPoint(1);
@@ -432,11 +379,7 @@ bool Scene::tryIntersectionTriangle(glm::vec3 D, glm::vec3 start, Triangle& tri,
     P = glm::cross(D, e2);
     Q = glm::cross(T, e1);
 
-    //cout << T.x << " " << T.y << " " << T.z << endl;
-
     double a = glm::dot(e1, P);
-
-    //cout << a << " ";
 
     // For float numbers, don't check if they are exactly the same. Check whether their difference is very small
     if (a > -ZERO && a < ZERO) {
@@ -457,8 +400,7 @@ bool Scene::tryIntersectionTriangle(glm::vec3 D, glm::vec3 start, Triangle& tri,
     double t = glm::dot(e2, Q) * f;
 
     // if the intersection point lies behind the imageplane and the distance is smaller than a previous tringle
-    if ( t > 1.f ) {
-        //d = (float)t;
+    if ( t > ZERO && t < 10000000.f) {
         iPoint = start + D*(float)t;
 
         return true;

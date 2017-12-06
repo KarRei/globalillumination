@@ -19,7 +19,7 @@
 
 using namespace std;
 
-const int MAX_ITERATIONS = 7;
+const int MAX_ITERATIONS = 3;
 
 struct TriangleIntersection {
     Triangle triangle;

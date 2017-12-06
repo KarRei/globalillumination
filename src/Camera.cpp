@@ -20,15 +20,32 @@ void Camera::render(Scene& scene) { // const Scene, so we dont accidentaly chang
         for (int y = 0; y < max_val; y++) {
 
             // Värden mellan -0.999 och .999 (-1 och 1)
-            glm::vec3 imagePlanePosition(0, y*0.002 - 0.999, z*0.002 - 0.999);
+            //glm::vec3 imagePlanePosition(0, y*0.002 - 0.999, z*0.002 - 0.999);
+            float fourth = 0.0005;
+            glm::vec3 imagePlanePosition1(0, (y*0.002 - 0.999)+fourth, (z*0.002 - 0.999)+fourth);
+            glm::vec3 imagePlanePosition2(0, (y*0.002 - 0.999)+fourth, (z*0.002 - 0.999)-fourth);
+            glm::vec3 imagePlanePosition3(0, (y*0.002 - 0.999)-fourth, (z*0.002 - 0.999)+fourth);
+            glm::vec3 imagePlanePosition4(0, (y*0.002 - 0.999)-fourth, (z*0.002 - 0.999)-fourth);
 
             //crete a ray from the eye to current pixel
-            Ray r(eye, imagePlanePosition);
+            Ray r1(eye, imagePlanePosition1);
+            Ray r2(eye, imagePlanePosition2);
+            Ray r3(eye, imagePlanePosition3);
+            Ray r4(eye, imagePlanePosition4);
             // Launch the ray into the scene. The function will take the reference to the ray and set it's color.
-            glm::vec3 color = scene.rayIntersection(r);
+            glm::vec3 color = glm::vec3(0.0f);
+
+            color += scene.rayIntersection(r1);
+            color += scene.rayIntersection(r2);
+            color += scene.rayIntersection(r3);
+            color += scene.rayIntersection(r4);
+            color /= 4.0f;
             //after rayIntersection r's color (colorDbl) has changes to the triangle color that it hits
 
-            imagePlane[y][z].setColor(ColorDbl(color));
+            //glm::vec3 hej = glm::normalize(color);
+            //cout << "color: " << hej.x << " " << hej.y << " " << hej.z << endl;
+            //glm::vec3 hej = glm::vec3(1.0f) - color;
+            imagePlane[y][z].setColor(sqrt(color));
         }
     }
 }
@@ -41,6 +58,24 @@ void Camera::createImage(const string filename) {
     FILE *fp = fopen(filename.c_str(), "wb");
     fprintf(fp, "P3\n%d %d\n255\n", 1000, 1000);
 
+    float i_max = 0.f;
+
+    for (int z = 0; z < max_val; z++) {
+        for (int y = 0; y < max_val; y++) {
+
+            if (imagePlane[y][z].getColor().x > i_max)
+                i_max = imagePlane[y][z].getColor().x;
+
+            if (imagePlane[y][z].getColor().y > i_max)
+                i_max = imagePlane[y][z].getColor().y;
+
+            if (imagePlane[y][z].getColor().z > i_max)
+                i_max = imagePlane[y][z].getColor().z;
+        }
+    }
+
+    cout << i_max << endl;
+
     for (int z = 0; z < max_val; z++) {
         for (int y = 0; y < max_val; y++) {
             //loop through all color channels RGB and find largest intensity value i_max
@@ -48,17 +83,11 @@ void Camera::createImage(const string filename) {
 
             glm::vec3 RGB;
 
-            float i_max = imagePlane[y][z].getColor().x;
-
-            if (imagePlane[y][z].getColor().y > i_max)
-                i_max = imagePlane[y][z].getColor().y;
-
-            if (imagePlane[y][z].getColor().z > i_max)
-                i_max = imagePlane[y][z].getColor().z;
-
             RGB.r = (255.99 / i_max)*(imagePlane[y][z].getColor().r);
             RGB.g = (255.99 / i_max)*(imagePlane[y][z].getColor().g);
             RGB.b = (255.99 / i_max)*(imagePlane[y][z].getColor().b);
+
+            //cout << RGB.r << " " << RGB.g << " " << RGB.b << endl;
 
             // OBS (int) grejerna är viktiga!
             fprintf(fp, "%d %d %d ", (int)RGB.r, (int)RGB.g, (int)RGB.b);

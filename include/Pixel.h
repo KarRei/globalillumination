@@ -10,16 +10,16 @@ class Pixel
 {
     public:
         Pixel();
-        Pixel(ColorDbl);
+        Pixel(glm::vec3);
         virtual ~Pixel();
 
         glm::vec3 getColor();
-        void setColor(ColorDbl);
+        void setColor(glm::vec3);
 
     protected:
 
     private:
-        ColorDbl color;
+        glm::vec3 color;
         //reference to a ray (the ray that goes through it)
         //Ray& refRay;
 };

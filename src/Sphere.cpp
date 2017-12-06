@@ -44,13 +44,24 @@ glm::vec3 Sphere::getNormal(glm::vec3 hit_point)
 
 Ray Sphere::getReflectedRay( Ray &r, glm::vec3 hit_point )
 {
-    glm::vec3 reflected_dir;
     glm::vec3 normal = hit_point - position;
 
-    // specular reflection
-    reflected_dir = glm::reflect(r.getDirection(), normal);
+    Ray temp;
 
-    Ray temp(hit_point, reflected_dir);
+    const float PI = 3.1415926535897932384626433832795;
+    float rand1 = (float)rand()/(float)RAND_MAX;
+    float rand2 = (float)rand()/(float)RAND_MAX;
+
+    float azimuth = PI * rand1 * 2.0f;
+    float elevation = acos(sqrt(rand2));
+
+    glm::vec3 tangent = glm::normalize(glm::cross(normal, normal + glm::vec3(1.f)));
+    glm::vec3 reflected_dir = normal;
+
+    reflected_dir = glm::normalize(glm::rotate(reflected_dir, elevation, tangent));
+    reflected_dir = glm::normalize(glm::rotate(reflected_dir, azimuth, normal));
+
+    temp = Ray(hit_point, reflected_dir);
     return temp;
 }
 
